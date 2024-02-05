@@ -7,7 +7,7 @@ import LifeSci from './pages/Lifesci';
 import SocSci from './pages/Socsci';
 import Robotics from './pages/Robotics';
 import Admin from './pages/Admin';
-
+import StudLogin from './pages/StudLogin';
 
 function App() {
   return (
@@ -20,11 +20,10 @@ function App() {
           <Route path="category/lifescience" element={<LifeSci/>} />
           <Route path="category/socialscience" element={<SocSci/>} />
           <Route path="admin-access" element={<Admin/> } />
+          <Route path="student-login" element={<StudLogin/>} />
           <Route path="*" element={<Error404/>} />
         </Routes>
-      
-     
-      
+
     </div>
   );
 }

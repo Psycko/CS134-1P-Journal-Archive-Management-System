@@ -1,0 +1,27 @@
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    background-color: lightblue;
+    border-radius: 10px;
+}
+
+h1{
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formStyle{
+    width: 400px;
+    margin: 0 auto;
+}
+
+.elements{
+    padding: 10px;
+}
