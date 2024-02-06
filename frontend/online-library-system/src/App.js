@@ -8,6 +8,7 @@ import SocSci from './pages/Socsci';
 import Robotics from './pages/Robotics';
 import Admin from './pages/Admin';
 import StudLogin from './pages/StudLogin';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="category/socialscience" element={<SocSci/>} />
           <Route path="admin-access" element={<Admin/> } />
           <Route path="student-login" element={<StudLogin/>} />
+          <Route path="register" element={<Register/>} />
           <Route path="*" element={<Error404/>} />
         </Routes>
 
