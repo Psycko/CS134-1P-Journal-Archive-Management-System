@@ -1,4 +1,4 @@
-import "../styles/login.css";
+import "../layout/login.css";
 
 export default function Register() {
     return (
@@ -6,7 +6,7 @@ export default function Register() {
         <div class="bodycontainer">
             <div class="logincontainer">
                 <h1>Register</h1>
-                <form className="formStyle">
+                <form className="formStyle help">
                     <div class="elements">
                         <div class="form-group ">
                             <label for="lrnLabel">Student LRN </label>
@@ -25,7 +25,7 @@ export default function Register() {
                     <hr />
 
                     <h5>Login</h5>
-                    <div class="elements">
+                    <div class="elements">   
                         <button type="register" class="lgnbutton btn btn-primary">Login</button>
                     </div>
                 </form>

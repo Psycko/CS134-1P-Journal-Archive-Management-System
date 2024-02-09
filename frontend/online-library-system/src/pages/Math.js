@@ -1,6 +1,7 @@
 import Header from "../components/navbar"
 import Searchbar from "../components/searchbar";
-import MathCateg from "../components/mathcateg";
+import Category from "../components/category";
+
 
 export default function MathManuscript() {
     return (
@@ -9,7 +10,7 @@ export default function MathManuscript() {
 
             <h1 class="text-center">Mathematics</h1>    
             <Searchbar/>  
-            <MathCateg/>          
+            <Category category={"math-categ"}/>          
         </>
        
     )

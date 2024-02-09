@@ -1,6 +1,7 @@
 import Header from "../components/navbar"
 import Searchbar from "../components/searchbar";
-import SocsciCateg from "../components/socscicateg";
+import Category from "../components/category";
+
 
 export default function SocSci() {
     return (
@@ -8,7 +9,7 @@ export default function SocSci() {
             <Header/>
             <h1 class="text-center">Social Science</h1>    
             <Searchbar/>
-            <SocsciCateg />            
+            <Category category={"soc-sci-categ"} />            
         </>
        
     )

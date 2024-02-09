@@ -1,5 +1,6 @@
-import {Routes, Route} from 'react-router-dom';
 
+
+import {Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Error404 from './pages/NoPage';
 import MathManuscript from './pages/Math';
@@ -10,22 +11,29 @@ import Admin from './pages/Admin';
 import StudLogin from './pages/StudLogin';
 import Register from './pages/Register';
 
+
+
+
 function App() {
   return (
-    <div className="App">
-      
+    <div className='App'>
+        
+
+
         <Routes>
-          <Route index element={<Home/>} />
+          <Route index element={<StudLogin/>} />
+          <Route path="register" element={<Register/>} />
+          <Route path="category/all" element={<Home/>} />
           <Route path="category/mathematics" element={<MathManuscript/>} />
           <Route path="category/robotics" element={<Robotics/>} />
           <Route path="category/lifescience" element={<LifeSci/>} />
           <Route path="category/socialscience" element={<SocSci/>} />
           <Route path="admin-access" element={<Admin/> } />
-          <Route path="student-login" element={<StudLogin/>} />
-          <Route path="register" element={<Register/>} />
           <Route path="*" element={<Error404/>} />
         </Routes>
-
+      
+     
+      
     </div>
   );
 }

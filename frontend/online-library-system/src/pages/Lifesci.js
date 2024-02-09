@@ -1,6 +1,6 @@
 import Header from "../components/navbar"
 import Searchbar from "../components/searchbar";
-import LifeSciCateg from "../components/lifescicateg";
+import Category from "../components/category";
 
 export default function LifeSci() {
     return (
@@ -9,7 +9,7 @@ export default function LifeSci() {
 
             <h1 class="text-center">Life Science</h1>
             <Searchbar/>            
-            <LifeSciCateg/>
+            <Category category={"life-sci-categ"}/>
         </>
        
     )

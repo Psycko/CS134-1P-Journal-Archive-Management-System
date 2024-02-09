@@ -1,6 +1,7 @@
 import Header from "../components/navbar"
 import Searchbar from "../components/searchbar";
-import RoboticsCateg from "../components/roboticscateg";
+import Category from "../components/category";
+
 
 export default function Robotics() {
     return (
@@ -9,7 +10,7 @@ export default function Robotics() {
 
             <h1 class="text-center">Robotics</h1>        
             <Searchbar/>
-            <RoboticsCateg />        
+            <Category category={"robotics-categ"} />        
         </>
        
     )

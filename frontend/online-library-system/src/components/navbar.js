@@ -18,7 +18,7 @@ export default function Header() {
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <Link class="nav-link active" aria-current="page" to="/"> Home</Link>
+                  <Link class="nav-link active" aria-current="page" to="/category/all"> Home</Link>
                   <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Manuscripts</a>
                   <ul class="dropdown-menu">
                     <li>

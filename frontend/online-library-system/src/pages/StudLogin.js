@@ -1,4 +1,4 @@
-import "../styles/login.css";
+import "../layout/login.css";
 
 export default function StudLogin() {
     return (
@@ -6,7 +6,7 @@ export default function StudLogin() {
         <div class="bodycontainer">
             <div class="logincontainer">
                 <h1>Login</h1>
-                <form className="formStyle">
+                <form className="formStyle help">
                     <div class="elements">
                         <div class="form-group ">
                             <label for="lrnLabel">Student LRN </label>
