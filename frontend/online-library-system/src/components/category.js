@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react"
-import "../layout/table.css";
 import axios from "axios";
-
-
-
 
 export default function Category({category}) {
     const [data, setData] = useState([])
@@ -39,8 +35,8 @@ export default function Category({category}) {
         .catch(err => console.error(err));
     }
     return(
-        <div className="category">
-            <table class="table table-striped table-responsive text-center">
+        <div className="category table-striped table-responsive tw-m-auto tw-w-11/12">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>

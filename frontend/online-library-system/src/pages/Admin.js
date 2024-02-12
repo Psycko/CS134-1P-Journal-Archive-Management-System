@@ -1,8 +1,5 @@
-import "../layout/admin.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-
 
 export default function Admin() {
 
@@ -10,8 +7,6 @@ export default function Admin() {
     const [researchYear, setYear] = useState("");
     const [category, setCategory] = useState("");
     const [file, setFile] = useState("");
-
-
 
     const submitFile= async(e) => {
         e.preventDefault();
@@ -36,8 +31,8 @@ export default function Admin() {
 
     return(
         <>
-        <div className="whole">
-            <form className='formStyle' onSubmit={submitFile}>
+        <div className="whole tw-flex tw-justify-center tw-items-center tw-pt-30 tw-flex-col">
+            <form className="formStyle tw-p-20 tw-w-4/5" onSubmit={submitFile}>
                 <div class="form-group">
                 <div class="mb-3 row">
                     <label for="titleInput" class="col-sm-2 col-form-label">Title</label>

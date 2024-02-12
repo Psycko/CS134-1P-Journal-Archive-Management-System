@@ -1,32 +1,30 @@
-import "../layout/login.css";
-
 export default function StudLogin() {
     return (
         <>
-        <div class="bodycontainer">
-            <div class="logincontainer">
-                <h1>Login</h1>
-                <form className="formStyle help">
-                    <div class="elements">
-                        <div class="form-group ">
+        <div className="container tw-flex tw-justify-center tw-items-center tw-min-h-dvh">
+            <div class="container2 tw-bg-sky-200 tw-rounded-lg">
+                <h1 class="tw-pt-5 tw-flex tw-justify-center tw-items-center">Login</h1>
+                <form className="formStyle tw-w-96 tw-mx-auto tw-p-4">
+                    <div class="elements tw-p-2.5 tw-w-full">
+                        <div class="form-group">
                             <label for="lrnLabel">Student LRN </label>
                             <input class="form-control" id="lrnInput" placeholder="LRN" />
                         </div>
                     </div>
-                    <div class="elements">
+                    <div class="elements tw-p-2.5 tw-w-full">
                         <div class="form-group">
                                 <label for="passwordInput">Password</label>
                                 <input type="password" class="form-control" id="passwordInput" placeholder="Password" />
                             </div>
                     </div>
-                    <div class="elements">
-                        <button type="login" class="lgnbutton btn btn-primary">Login</button>
+                    <div class="elements tw-p-2.5 tw-w-full">
+                        <button type="login" class="lgnbutton btn btn-primary tw-flex tw-justify-center tw-items-center tw-w-full">Login</button>
                     </div>
                     <hr />
 
-                    <h5>Register Account</h5>
-                    <div class="elements">
-                        <button type="register" class="rgtbutton btn btn-primary">Register</button>
+                    <h5 class="tw-flex tw-justify-center tw-items-center">Register</h5>
+                    <div class="elements tw-p-2.5 tw-w-full">
+                        <button type="register" class="rgtbutton btn btn-primary tw-flex tw-justify-center tw-items-center tw-w-full">Register</button>
                     </div>
                 </form>
             </div>

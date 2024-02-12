@@ -8,7 +8,7 @@ export default function Robotics() {
         <>
             <Header/>
 
-            <h1 class="text-center">Robotics</h1>        
+            <h1 class="tw-m-auto tw-w-5/6 tw-p-20 tw-text-center">Robotics</h1>        
             <Searchbar/>
             <Category category={"robotics-categ"} />        
         </>
