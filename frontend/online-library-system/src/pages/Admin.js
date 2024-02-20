@@ -18,7 +18,7 @@ export default function Admin() {
 
         console.log(researchTitle, researchYear, category, file);
 
-        const uploadAPI = await axios.post("https://309b-136-158-65-68.ngrok-free.app/upload-pdf", formData, {
+        const uploadAPI = await axios.post("http://localhost:8081/upload-pdf", formData, {
             headers: { "Content-type" : "multipart/form-data",
         },
             
