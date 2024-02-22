@@ -1,5 +1,6 @@
 import { useEffect, useState} from "react";
 import axios from "axios";
+import logo from '../RSHS_1_Logo.png';
 
 export default function Register() {
 
@@ -38,9 +39,17 @@ export default function Register() {
 
     return (
         <>
-        <div class="container tw-flex tw-justify-center tw-items-center tw-min-h-dvh">
-            <div class="container2 tw-bg-sky-200 tw-rounded-lg">
-                <h1 class="tw-pt-5 tw-flex tw-justify-center tw-items-center">Register</h1>
+        <div class="container tw-bg-gray-100 tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-min-h-dvh tw-min-w-full">
+            <div class="">
+                <h1 class="tw-text-left tw-text-6xl">Regional Science</h1>
+                <h1 class="tw-text-left tw-text-6xl">High School</h1>
+                <h3 class="tw-text-left">for Region I</h3>
+            </div>
+            <div class="tw-bg-white container2 tw-h-max tw-ml-20 tw-shadow-lg tw-rounded-lg">
+                <div class="tw-pt-5 tw-flex tw-justify-center tw-items-center">
+                    <img src={logo} class="tw-h-20 tw-w-20 tw-text-left" alt="RSHS Logo"/>
+                    <h1>Sign Up</h1>
+                </div>
                 <form className="formStyle tw-w-96 tw-mx-auto tw-p-4" onSubmit={submitRegForm}>
                     <div class="elements tw-p-2.5 tw-w-full">
                         <div class="form-group">
@@ -61,13 +70,13 @@ export default function Register() {
                             </div>
                     </div>
                     <div class="elements tw-p-2.5 tw-w-full">
-                        <button type="login" class="rgtbutton btn btn-primary tw-flex tw-justify-center tw-items-center tw-w-full">Register</button>
+                        <button type="sign_up" class="rgtbutton btn btn-primary tw-flex tw-justify-center tw-items-center tw-w-full">Sign Up</button>
                     </div>
                     <hr />
 
                     <h5 class="tw-flex tw-justify-center tw-items-center">Login</h5>
                     <div class="elements tw-p-2.5 tw-w-full">
-                        <button type="register" class="lgnbutton btn btn-primary tw-flex tw-justify-center tw-items-center tw-w-full">Login</button>
+                        <button type="login" class="lgnbutton btn btn-primary tw-flex tw-justify-center tw-items-center tw-w-full">Login</button>
                     </div>
                 </form>
             </div>
