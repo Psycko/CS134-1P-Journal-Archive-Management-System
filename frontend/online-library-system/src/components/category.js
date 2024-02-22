@@ -13,7 +13,7 @@ export default function Category({category}) {
     }, [])
 
     const ShowPDF = (pdfdestination) => {
-  
+
         window.open('http://localhost:8081/uploads/' + pdfdestination, "_blank", "noreferrer");
     }
 

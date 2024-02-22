@@ -13,6 +13,10 @@ const dbURL = "mongodb+srv://archive123:JZcxTDy8i6D3yriH@research-archive.fofukz
 require("./Schema/pdfDetails");
 const PdfDetailsSchema = mongoose.model("PdfDetails");
 
+//Schema for regStudent
+require("./Schema/regStudents");
+const regStudentsSchema = mongoose.model("regStudents")
+
 
 mongoose.connect(dbURL,
     )
@@ -56,7 +60,6 @@ app.get('/', (req, res)=> {
     return res.json("backend");
 })
 
-
 app.post("/upload-pdf", upload.single("File"), async (req, res) => {
 
     const title = req.body.Title;
@@ -69,7 +72,7 @@ app.post("/upload-pdf", upload.single("File"), async (req, res) => {
             title: title,
             year: year,
             category: category,
-            destination: fileDest,
+            destination: fileDest
         })
         res.json({status: "Upload Success!"});
     } catch (error) {
@@ -77,12 +80,35 @@ app.post("/upload-pdf", upload.single("File"), async (req, res) => {
     }
 })
 
+app.post("/register-stud", upload.single("Form"), async (req, res) => {
 
+    const lrn = req.body.LRN;
+    const password = req.body.Password;
+    const status = "Pending";
+    const regDate = Date.now();
 
+    try {
+        await regStudentsSchema.create({
+            lrn: lrn,
+            password: password,
+            status: status,
+            regDate: regDate
+        })
+        res.json({status: "Student Registered!"});
+    } catch (error) {
+        res.json({status: "Error! Try Again!"});
+    }
+})
 
-
-
-
+app.get('/login', (req, res) => {
+    try {
+        regStudentsSchema.find({}).then((data) => {
+            res.send(data);
+        });
+    } catch (error) {
+        res.json({status: "Student not found!"});
+    }
+})
 
 app.get('/all-categ', (req, res)=> {
    try {

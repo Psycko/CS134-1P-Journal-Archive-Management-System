@@ -1,5 +1,3 @@
-
-
 import {Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Error404 from './pages/NoPage';
@@ -10,9 +8,6 @@ import Robotics from './pages/Robotics';
 import Admin from './pages/Admin';
 import StudLogin from './pages/StudLogin';
 import Register from './pages/Register';
-
-
-
 
 function App() {
   return (

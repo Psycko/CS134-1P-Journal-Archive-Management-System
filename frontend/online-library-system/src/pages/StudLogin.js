@@ -1,4 +1,6 @@
 export default function StudLogin() {
+    
+
     return (
         <>
         <div className="container tw-flex tw-justify-center tw-items-center tw-min-h-dvh">

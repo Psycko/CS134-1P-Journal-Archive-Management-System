@@ -15,7 +15,7 @@ export default function Admin() {
         formData.append("Year", researchYear);
         formData.append("Category", category);
         formData.append("File", file);
-
+        
         console.log(researchTitle, researchYear, category, file);
 
         const uploadAPI = await axios.post("http://localhost:8081/upload-pdf", formData, {
@@ -24,7 +24,7 @@ export default function Admin() {
             
         });
         
-       // const data = await uploadAPI.json();
+        // const data = await uploadAPI.json();
         console.log(uploadAPI);
         alert(uploadAPI.data.status);
     }
