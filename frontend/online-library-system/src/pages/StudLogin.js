@@ -1,11 +1,20 @@
+import logo from '../RSHS_1_Logo.png';
+
 export default function StudLogin() {
-    
 
     return (
         <>
-        <div className="container tw-flex tw-justify-center tw-items-center tw-min-h-dvh">
-            <div class="container2 tw-bg-sky-200 tw-rounded-lg">
-                <h1 class="tw-pt-5 tw-flex tw-justify-center tw-items-center">Login</h1>
+        <div className="md:tw-bg-[url('/src/bg.jpg')] tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-min-h-dvh tw-min-w-full tw-gap-x-16 tw-gap-y-px">
+            <div class="md:tw-text-left sm:tw-text-center">
+                <h1 class="tw-text-6xl">Regional Science</h1>
+                <h1 class="tw-text-6xl">High School</h1>
+                <h3>for Region I</h3>
+            </div>
+            <div class="tw-bg-white tw-h-max tw-shadow-lg tw-rounded-lg">
+                <div class="tw-pt-5 tw-flex tw-justify-center tw-items-center">
+                    <img src={logo} class="tw-h-20 tw-w-20 tw-text-left" alt="RSHS Logo"/>
+                    <h1>Login</h1>
+                </div>
                 <form className="formStyle tw-w-96 tw-mx-auto tw-p-4">
                     <div class="elements tw-p-2.5 tw-w-full">
                         <div class="form-group">

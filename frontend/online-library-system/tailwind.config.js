@@ -4,7 +4,18 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    screens: {
+      'sm': {
+        'min': '350px',
+        'max': '905px'
+      },
+      'md': '906px',
+    },
+    extend: {
+      backgroundImage: {
+        'bg-image': "url(/src/bg.jpg')",
+      }
+    },
   },
   corePlugins: {
     preflight: false,
