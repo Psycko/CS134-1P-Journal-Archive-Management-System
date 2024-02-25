@@ -12,8 +12,15 @@ module.exports = {
       'md': '906px',
     },
     extend: {
-      backgroundImage: {
-        'bg-image': "url(/src/bg.jpg')",
+      fontFamily: {
+        'roboto': ['Roboto'],
+        'bebas-neue': ['Bebas Neue'],
+        'inter': ['Inter'],
+        'archivo-black': ['Archivo Black'],
+      },
+
+      colors: {
+        'blue': '#1F75FE',
       }
     },
   },

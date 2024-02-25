@@ -23,8 +23,7 @@ export default function Admin() {
         },
             
         });
-        
-        // const data = await uploadAPI.json();
+
         console.log(uploadAPI);
         alert(uploadAPI.data.status);
     }

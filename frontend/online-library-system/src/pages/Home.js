@@ -13,7 +13,7 @@ export default function Home() {
                 </div>
 
             </div>
-    
+        
             <Searchbar/>
             <Category category={"all-categ"}/>
         </>
