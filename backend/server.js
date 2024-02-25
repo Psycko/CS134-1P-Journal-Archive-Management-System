@@ -60,6 +60,7 @@ app.get('/', (req, res)=> {
     return res.json("backend");
 })
 
+
 app.post("/upload-pdf", upload.single("File"), async (req, res) => {
 
     const title = req.body.Title;
@@ -67,15 +68,26 @@ app.post("/upload-pdf", upload.single("File"), async (req, res) => {
     const category = req.body.Category;
     const fileDest = req.file.filename;
 
-    try {
-        await PdfDetailsSchema.create({
-            title: title,
-            year: year,
-            category: category,
-            destination: fileDest
-        })
-        res.json({status: "Upload Success!"});
-    } catch (error) {
+    try{
+        const matchedTitles = await PdfDetailsSchema.find({title: title})
+
+        if (matchedTitles.length > 0){
+            res.json({status: "There's an existing PDF with that title! Please try again."});
+        }
+        else{
+            try {
+                await PdfDetailsSchema.create({
+                    title: title,
+                    year: year,
+                    category: category,
+                    destination: fileDest
+                })
+                res.json({status: "Upload Success!"});
+            } catch (error) {
+                res.json({status: "Error! Try Again!"});
+            }
+        }
+    } catch(error){
         res.json({status: "Error! Try Again!"});
     }
 })
