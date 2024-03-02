@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Sidebar from "../components/sidebar";
 
 export default function Admin() {
 
@@ -30,82 +31,80 @@ export default function Admin() {
 
     return(
         <>
-        <div className="whole tw-flex tw-justify-center tw-items-center tw-pt-30 tw-flex-col">
-            <form className="formStyle tw-p-20 tw-w-4/5" onSubmit={submitFile}>
-                <div class="form-group">
-                <div class="mb-3 row">
-                    <label for="titleInput" class="col-sm-2 col-form-label">Title</label>
-                    <div class="col-sm-10">
-                    <input type="text" class="form-control" id="titleInput" placeholder="Title" required
-                    onChange={(e) => setTitle(e.target.value)}/>
-                    </div>
-                </div>
-                </div>
+        <div class="tw-flex tw-min-h-dvh tw-min-w-full tw-bg-gray-100">
+            <Sidebar />
 
-                
-                <div class="form-group">
-                <div class="mb-3 row">
-                    <label for="yearInput" class="col-sm-2 col-form-label">Year</label>
-                    <div class="col-sm-10">
-                    <input type='text' className='form-control' placeholder='Input here' id='yearInput' required
-                    onChange={(e) => setYear(e.target.value)}/>
-                    </div>
-                </div>
-                </div>
-                
-                <fieldset class="form-group">
-                <div class="row">
-                    <legend class="col-form-label col-lg-2 pt-0 ">Category</legend>
-                    <div class="col-sm-10" onChange={(e) => setCategory(e.target.value)} >
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="lsCateg" value="Life Science" required/>
-                        <label class="form-check-label" for="lsCateg">
-                        Life Science
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="ssCateg" value="Social Science" required/>
-                        <label class="form-check-label" for="ssCateg">
-                        Social Science
-                        </label>
+            <div class="tw-mx-auto tw-my-auto tw-bg-white tw-rounded-lg tw-justify-center tw-shadow-lg">
+                <form class="formStyle sm:tw-w-full tw-p-5 md:tw-w-[500px]" onSubmit={submitFile}>
+                    <div class="form-group">
+                        <div class="mb-3 row">
+                            <label for="titleInput" class="col-sm-2 col-form-label">Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="titleInput" placeholder="Title" required
+                                onChange={(e) => setTitle(e.target.value)}/>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="mathCateg" value="Mathematics" required/>
-                        <label class="form-check-label" for="mathCateg">
-                        Mathematics
-                        </label>
+                    <div class="form-group">
+                        <div class="mb-3 row">
+                            <label for="yearInput" class="col-sm-2 col-form-label">Year</label>
+                            <div class="col-sm-10">
+                                <input type='text' className='form-control' placeholder='Input here' id='yearInput' required
+                                onChange={(e) => setYear(e.target.value)}/>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="robCateg" value="Robotics" required/>
-                        <label class="form-check-label" for="robCateg">
-                        Robotics
-                        </label>
-                    </div>
-
                     
+                    <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-lg-2 pt-0 ">Category</legend>
+                        <div class="col-sm-10" onChange={(e) => setCategory(e.target.value)} >
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="lsCateg" value="Life Science" required/>
+                                <label class="form-check-label" for="lsCateg">
+                                Life Science
+                                </label>
+                            </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="ssCateg" value="Social Science" required/>
+                            <label class="form-check-label" for="ssCateg">
+                            Social Science
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="mathCateg" value="Mathematics" required/>
+                            <label class="form-check-label" for="mathCateg">
+                            Mathematics
+                            </label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="robCateg" value="Robotics" required/>
+                            <label class="form-check-label" for="robCateg">
+                            Robotics
+                            </label>
+                        </div>
+
+                        </div>
                     </div>
-                </div>
-                </fieldset>
+                    </fieldset>
 
+                    <br/>
 
-                <br/>
-
-
-
-                <div class="form-group">
-                <div class="mb-3">
-                    <input type='file' className='form-control' accept='application/pdf' required
-                    onChange={(e) => setFile(e.target.files[0])}/>
-                </div>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">
-                Submit
-                </button>
-
-            </form>
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <input type='file' className='form-control' accept='application/pdf' required
+                            onChange={(e) => setFile(e.target.files[0])}/>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                    Submit
+                    </button>
+                </form>
+            </div>
         </div>
         </>
     )

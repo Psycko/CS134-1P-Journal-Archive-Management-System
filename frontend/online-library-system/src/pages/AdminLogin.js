@@ -10,12 +10,13 @@ export default function StudLogin() {
                 <h1 class="tw-text-7xl">High School</h1>
                 <h3 class="tw-p-0.5">Region 1</h3>
             </div>
+            
             <div class="tw-bg-white tw-bg-opacity-30 tw-h-max tw-shadow-lg tw-rounded-lg md:tw-mb-[100px]">
                 <div class="tw-pt-5 tw-flex tw-justify-center tw-items-center tw-font-roboto">
                     <img src={logo} class="tw-h-20 tw-w-20 tw-text-left" alt="RSHS Logo"/>
                     <h1>Admin</h1>
                 </div>
-                <form className="formStyle tw-w-96 tw-mx-auto tw-p-4">
+                <form class="formStyle tw-w-96 tw-mx-auto tw-p-4">
                     <div class="elements tw-p-2.5 tw-w-full">
                         <div class="form-group">
                             <label for="lrnLabel">Email Address</label>

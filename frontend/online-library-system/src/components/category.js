@@ -35,15 +35,16 @@ export default function Category({category}) {
         .catch(err => console.error(err));
     }
     return(
-        <div className="category table-striped table-responsive tw-m-auto tw-w-11/12">
-            <table class="table table-striped">
-                <thead>
+        <div class="category table-striped table-responsive tw-m-auto tw-w-[70%]">
+            <table class="table table-striped tw-text-center">
+                <thead class="tw-text-center">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Title</th>
                         <th scope="col">Category</th>
                         <th scope="col">Year Published</th>
-                        
+                        <th scope="col">View</th>
+                        <th scope="col">Download</th>
                     </tr>
                     
                 </thead>
@@ -55,8 +56,8 @@ export default function Category({category}) {
                         <td>{d.title}</td>
                         <td>{d.category}</td>
                         <td>{d.year}</td>
-                        <td><button class="btn btn-primary" onClick={()=> ShowPDF(d.destination)}>View</button></td>
-                        <td><button class="btn btn-primary" onClick={() => DownloadPDF(d.destination)}>Download</button></td>
+                        <td class="tw-w-[30px]"><button class="btn btn-primary" onClick={()=> ShowPDF(d.destination)}>View</button></td>
+                        <td class="tw-w-[30px]"><button class="btn btn-primary" onClick={() => DownloadPDF(d.destination)}>Download</button></td>
                     </tr>
 
                     ))}

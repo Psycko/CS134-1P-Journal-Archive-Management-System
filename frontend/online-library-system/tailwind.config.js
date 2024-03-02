@@ -20,7 +20,7 @@ module.exports = {
       },
 
       colors: {
-        'blue': '#1F75FE',
+        'blue': '#002366',
       }
     },
   },

@@ -9,7 +9,7 @@ export default function Header() {
             <div class="container-fluid">
               <a class="navbar-brand">
                 <img src={logo} width="40" alt="Logo" height="40" class="d-inline-block"/>
-                Online Library System
+                <label class="tw-pl-2">Online Archive System</label>
               </a>
       
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
