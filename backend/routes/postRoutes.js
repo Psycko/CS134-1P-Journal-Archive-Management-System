@@ -62,19 +62,47 @@ router.post("/upload-pdf", upload.single("File"), async (req, res) => {
 
 router.post("/register-stud", upload.single("Form"), async (req, res) => {
 
-    const lrn = req.body.LRN;
-    const password = req.body.Password;
-    const status = "Pending";
+    const lrn = req.body.lrn;
+    const password = req.body.password;
     const regDate = Date.now();
 
     try {
-        await regStudentsSchema.create({
-            lrn: lrn,
-            password: password,
-            status: status,
-            regDate: regDate
-        })
-        res.json({status: "Student Registered!"});
+        // await studCredentialSchema.create({
+        //     lrn: lrn,
+        //     password: password,
+        //     regDate: regDate
+        // })
+
+        // res.json({status: "Student Registered!"});
+        //const lrnList = await [student_db].find({LRN: lrn})
+        const regList = await regStudentsSchema.find({lrn: lrn})
+
+        if (regList.length === 0){
+            await regStudentsSchema.create({
+                lrn: lrn,
+                password: password,
+                regDate: regDate
+            })
+            res.json({status: "Student Registered!"});
+        }
+
+        else {
+            res.json({status: "Student already registered!"});
+        }
+
+        // if (lrnList !== 0){
+        //     await regStudentsSchema.create({
+        //         lrn: lrn,
+        //         password: password,
+        //         regDate: regDate
+        //     })
+        //     res.json({status: "Student Registered!"});
+        // }
+
+        // else {
+        //     res.json({status: "Student LRN does not exist!"});
+        // }
+
     } catch (error) {
         res.json({status: "Error! Try Again!"});
     }

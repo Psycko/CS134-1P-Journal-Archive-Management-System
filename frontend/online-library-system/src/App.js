@@ -9,7 +9,7 @@ import Admin from './pages/Admin';
 import StudLogin from './pages/StudLogin';
 import Register from './pages/Register';
 import AdminLogin from './pages/AdminLogin';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/studMonitor';
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           <Route path="category/lifescience" element={<LifeSci/>} />
           <Route path="category/socialscience" element={<SocSci/>} />
           <Route path="admin-login" element={<AdminLogin/>} />
-          <Route path="dashboard" element={<Dashboard/>} />
+          <Route path="stud-monitor" element={<Dashboard/>} />
           <Route path="admin-access" element={<Admin/> } />
           <Route path="*" element={<Error404/>} />
         </Routes>

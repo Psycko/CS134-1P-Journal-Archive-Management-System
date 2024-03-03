@@ -7,7 +7,6 @@ const postRoutes = require('./routes/postRoutes');
 app.use(cors())
 app.use("/uploads", express.static("uploads"));
 
-
 //Mongoose for mongoDb
 const mongoose = require("mongoose");
 const dbURL = "mongodb+srv://archive123:JZcxTDy8i6D3yriH@research-archive.fofukz3.mongodb.net/?retryWrites=true&w=majority";
@@ -19,7 +18,6 @@ const PdfDetailsSchema = mongoose.model("PdfDetails");
 //Schema for regStudent
 require("./Schema/regStudents");
 const regStudentsSchema = mongoose.model("regStudents")
-
 
 mongoose.connect(dbURL,
     )

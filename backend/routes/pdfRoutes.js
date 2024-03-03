@@ -5,6 +5,9 @@ const mongoose = require("mongoose");
 require("../Schema/pdfDetails"); 
 const PdfDetailsSchema = mongoose.model("PdfDetails");
 
+require("../Schema/regStudents");
+const regStudentsSchema = mongoose.model("regStudents");
+
 router.get('/all-categ', (req, res)=> {
     try {
          PdfDetailsSchema.find({}).then((data) => {
@@ -59,6 +62,20 @@ router.get('/all-categ', (req, res)=> {
      } catch (error) {
          res.send()
      } 
+ })
+
+ router.get('/reg-list', (req, res) => {
+    try {
+        regStudentsSchema.find({}).then((data) => {
+            res.send(data);
+        });
+    } catch (error) {
+        res.send()
+    }
+ })
+
+ router.get('/student-list', (req, res) => {
+
  })
 
 module.exports = router;

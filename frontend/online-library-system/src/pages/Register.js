@@ -1,7 +1,7 @@
-import { useState } from "react";
-import axios from "axios";
-import logo from '../img/RSHS_1_Logo.png';
-import { useNavigate } from "react-router-dom";
+import { useState } from "react"
+import axios from "axios"
+import logo from '../img/RSHS_1_Logo.png'
+import { useNavigate } from "react-router-dom"
 
 export default function Register() {
 
@@ -15,8 +15,8 @@ export default function Register() {
 
         if (studentPass === confirmPass){
             const formData = new FormData();
-            formData.append("LRN", studentLrn);
-            formData.append("Password", studentPass);
+            formData.append("lrn", studentLrn);
+            formData.append("password", studentPass);
 
             console.log(studentLrn, studentPass);
             
