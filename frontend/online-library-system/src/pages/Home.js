@@ -6,7 +6,7 @@ export default function Home() {
     return (
         <>
             <Header/>
-            <div class="tw-min-h-dvh tw-w-full tw-flex tw-flex-col">
+            <div>
                 <div class="jumbotron jumbotron-fluid tw-m-auto tw-w-full tw-p-20 tw-text-center">
                     <div class="container">
                         <h1 class="display-4">Research Title</h1>

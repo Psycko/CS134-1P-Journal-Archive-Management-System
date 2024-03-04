@@ -10,12 +10,16 @@ export default function Sidebar() {
         navigate('/admin-access');
     }
 
+    const navToStat = () => {
+        navigate('/admin-access');
+    }
+
     const navToMonitor = () => {
         navigate('/admin-monitor');
     }
 
     const navToAccount = () => {
-        navigate('stud-account');
+        navigate('/admin-access');
     }
 
     const navToLogin = () => {
@@ -33,17 +37,24 @@ export default function Sidebar() {
                 <div class="tw-mt-3 tw-flex tw-flex-col tw-duration-300 tw-cursor-pointer tw-gap-y-2 tw-mx-5">
                     <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
                         onClick={navToPDF}>   
-                        <i class={`${open && "tw-mr-2"} bi bi-file-earmark-plus-fill tw-cursor-pointer`} />
+                        <i class={`${open && "tw-mr-2"} bi bi-file-earmark-plus-fill tw-cursor-pointer`}/>
                         <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Manage PDF</label>
                     </button>
 
                     <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
+                        onClick={navToStat}>   
+                        <i class={`${open && "tw-mr-2"} bi bi-bar-chart-line tw-cursor-pointer`}/>
+                        <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>File Statistics</label>
+                    </button>
+
+                    <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
                         onClick={navToMonitor}>
-                        <i class={`${open && "tw-mr-2"} bi bi-person-fill-add tw-cursor-pointer`}></i>
+                        <i class={`${open && "tw-mr-2"} bi bi-person-fill tw-cursor-pointer`}/>
                         <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Student Monitor</label>
                     </button>
 
-                    <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}>
+                    <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
+                        onclick={navToAccount}>
                         <i class={`${open && "tw-mr-2"} bi bi-person-fill-gear tw-cursor-pointer`}></i>
                         <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Account Settings</label>
                     </button>
