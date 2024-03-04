@@ -11,7 +11,7 @@ export default function Sidebar() {
     }
 
     const navToMonitor = () => {
-        navigate('/stud-monitor');
+        navigate('/admin-monitor');
     }
 
     const navToAccount = () => {
@@ -31,27 +31,27 @@ export default function Sidebar() {
                 </div>
                 
                 <div class="tw-mt-3 tw-flex tw-flex-col tw-duration-300 tw-cursor-pointer tw-gap-y-2 tw-mx-5">
-                    <button class={`${!open && "tw-text-2xl" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
+                    <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
                         onClick={navToPDF}>   
-                        <i class={`${open && "tw-mr-2"} bi bi-file-earmark-plus-fill`} />
-                        <label class={`${!open && "tw-hidden"}`}>Manage PDF</label>
+                        <i class={`${open && "tw-mr-2"} bi bi-file-earmark-plus-fill tw-cursor-pointer`} />
+                        <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Manage PDF</label>
                     </button>
 
-                    <button class={`${!open && "tw-text-2xl" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}>
-                        <i class={`${open && "tw-mr-2"} bi bi-person-fill-add`}></i>
-                        <label class={`${!open && "tw-hidden"}`}>Student Monitor</label>
-                    </button>
-
-                    <button class={`${!open && "tw-text-2xl" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
+                    <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
                         onClick={navToMonitor}>
-                        <i class={`${open && "tw-mr-2"} bi bi-person-fill-gear`}></i>
-                        <label class={`${!open && "tw-hidden"}`}>Account Settings</label>
+                        <i class={`${open && "tw-mr-2"} bi bi-person-fill-add tw-cursor-pointer`}></i>
+                        <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Student Monitor</label>
+                    </button>
+
+                    <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}>
+                        <i class={`${open && "tw-mr-2"} bi bi-person-fill-gear tw-cursor-pointer`}></i>
+                        <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Account Settings</label>
                     </button>
                     
-                    <button class={`${!open && "tw-text-2xl" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
+                    <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
                         onClick={navToLogin}>
-                        <i class={`${open && "tw-mr-2"} bi bi-box-arrow-left`}></i>
-                        <label class={`${!open && "tw-hidden"}`}>Sign Out</label>
+                        <i class={`${open && "tw-mr-2"} bi bi-box-arrow-left tw-cursor-pointer`}></i>
+                        <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Sign Out</label>
                     </button>
                 </div>
             </div>

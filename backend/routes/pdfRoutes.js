@@ -8,6 +8,9 @@ const PdfDetailsSchema = mongoose.model("PdfDetails");
 require("../Schema/regStudents");
 const regStudentsSchema = mongoose.model("regStudents");
 
+require("../Schema/studInfo");
+const studInfoSchema = mongoose.model("studInfo");
+
 router.get('/all-categ', (req, res)=> {
     try {
          PdfDetailsSchema.find({}).then((data) => {
@@ -75,7 +78,13 @@ router.get('/all-categ', (req, res)=> {
  })
 
  router.get('/student-list', (req, res) => {
-
+    try {
+        studInfoSchema.find({}).then((data) => {
+            res.send(data);
+        });
+    } catch (error) {
+        res.send()
+    }
  })
 
 module.exports = router;

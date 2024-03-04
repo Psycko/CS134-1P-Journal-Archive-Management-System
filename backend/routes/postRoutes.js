@@ -9,6 +9,9 @@ const PdfDetailsSchema = mongoose.model("PdfDetails");
 require("../Schema/regStudents");
 const regStudentsSchema = mongoose.model("regStudents")
 
+require("../Schema/studInfo");
+const studInfoSchema = mongoose.model("studInfo")
+
 //MULTER FOR FILE UPLOAD
 const multer  = require('multer');
 const storage = multer.diskStorage({
@@ -67,15 +70,29 @@ router.post("/register-stud", upload.single("Form"), async (req, res) => {
     const regDate = Date.now();
 
     try {
-        // await studCredentialSchema.create({
+        // await studInfoSchema.create({
         //     lrn: lrn,
         //     password: password,
         //     regDate: regDate
         // })
 
         // res.json({status: "Student Registered!"});
-        //const lrnList = await [student_db].find({LRN: lrn})
+
+        const lrnList = await studInfoSchema.find({lrn: lrn})
         const regList = await regStudentsSchema.find({lrn: lrn})
+
+        if (lrnList.length !== 0){
+            await regStudentsSchema.create({
+                lrn: lrn,
+                password: password,
+                regDate: regDate
+            })
+            res.json({status: "Student Registered!"});
+        }
+
+        else {  
+            return(res.json({status: "Student LRN does not exist!"}));
+        }
 
         if (regList.length === 0){
             await regStudentsSchema.create({
@@ -89,19 +106,6 @@ router.post("/register-stud", upload.single("Form"), async (req, res) => {
         else {
             res.json({status: "Student already registered!"});
         }
-
-        // if (lrnList !== 0){
-        //     await regStudentsSchema.create({
-        //         lrn: lrn,
-        //         password: password,
-        //         regDate: regDate
-        //     })
-        //     res.json({status: "Student Registered!"});
-        // }
-
-        // else {
-        //     res.json({status: "Student LRN does not exist!"});
-        // }
 
     } catch (error) {
         res.json({status: "Error! Try Again!"});

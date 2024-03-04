@@ -24,7 +24,7 @@ function App() {
           <Route path="category/lifescience" element={<LifeSci/>} />
           <Route path="category/socialscience" element={<SocSci/>} />
           <Route path="admin-login" element={<AdminLogin/>} />
-          <Route path="stud-monitor" element={<Dashboard/>} />
+          <Route path="admin-monitor" element={<Dashboard/>} />
           <Route path="admin-access" element={<Admin/> } />
           <Route path="*" element={<Error404/>} />
         </Routes>
