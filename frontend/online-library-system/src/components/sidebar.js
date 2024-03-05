@@ -43,7 +43,7 @@ export default function Sidebar() {
 
                     <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
                         onClick={navToStat}>   
-                        <i class={`${open && "tw-mr-2"} bi bi-bar-chart-line tw-cursor-pointer`}/>
+                        <i class={`${open && "tw-mr-2"} bi bi-bar-chart-line-fill tw-cursor-pointer`}/>
                         <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>File Statistics</label>
                     </button>
 

@@ -26,8 +26,9 @@ export default function Monitor() {
             <div>
                 <Sidebar /> 
             </div>
-            <div class="tw-flex sm:tw-flex-wrap tw-flex-row tw-gap-x-[30px] tw-w-full md:tw-m-20 sm:tw-m-5 tw-rounded-md">
-                <div class="category table-striped table-responsive tw-m-auto md:tw-w-[50%] sm:tw-w-full">
+            <div class="tw-flex sm:tw-flex-wrap tw-flex-row tw-gap-x-[30px] tw-w-full md:tw-mx-20 md:tw-mt-[100px] sm:tw-m-5 tw-align-top">
+                <div class="category table-striped table-responsive md:tw-w-[50%] sm:tw-w-full tw-flex tw-align-center tw-flex-col">
+                    <label class="tw-text-center tw-text-4xl tw-my-3">Registered Students</label>
                     <table class="table table-striped tw-text-center">
                         <thead class="tw-text-center">
                             <tr>
@@ -48,7 +49,8 @@ export default function Monitor() {
                     </table>
                 </div>
 
-                <div class="category table-striped table-responsive tw-m-auto md:tw-w-[50%] sm:tw-w-full">
+                <div class="category table-striped table-responsive md:tw-w-[50%] sm:tw-w-full tw-flex tw-align-center tw-flex-col">
+                    <label class="tw-text-center tw-text-4xl tw-my-3">Enrolled Students</label>
                     <table class="table table-striped tw-text-center">
                         <thead class="tw-text-center">
                             <tr>
