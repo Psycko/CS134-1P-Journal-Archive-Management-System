@@ -114,7 +114,6 @@ export default function PDFManagement() {
             .then(res => res.json())
             .then(data => alert(data.status))
             .catch(err => console.log(err)); 
-
             setEdit(true);
 
             editButton();
