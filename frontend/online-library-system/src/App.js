@@ -10,6 +10,7 @@ import StudLogin from './pages/StudLogin';
 import Register from './pages/Register';
 import AdminLogin from './pages/AdminLogin';
 import Dashboard from './pages/studMonitor';
+import PDFManagement from './pages/pdfManagement';
 
 function App() {
   return (
@@ -26,7 +27,9 @@ function App() {
           <Route path="admin-login" element={<AdminLogin/>} />
           <Route path="admin-monitor" element={<Dashboard/>} />
           <Route path="admin-access" element={<Admin/> } />
+          <Route path="admin-pdf-management" element={<PDFManagement/>} />
           <Route path="*" element={<Error404/>} />
+          
         </Routes>
       
     </div>

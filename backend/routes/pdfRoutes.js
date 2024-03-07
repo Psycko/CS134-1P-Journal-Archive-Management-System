@@ -11,6 +11,9 @@ const regStudentsSchema = mongoose.model("regStudents");
 require("../Schema/studInfo");
 const studInfoSchema = mongoose.model("studInfo");
 
+require("../Schema/pdfStatistics");
+const pdfStatistics = mongoose.model("pdfstat");
+
 router.get('/all-categ', (req, res)=> {
     try {
          PdfDetailsSchema.find({}).then((data) => {
@@ -87,8 +90,6 @@ router.get('/all-categ', (req, res)=> {
     }
  })
 
-<<<<<<< Updated upstream
-=======
  router.get('/pdf-statistics', (req, res) => {
     try {
         pdfStatistics.find({}).then((data) => {
@@ -122,7 +123,7 @@ router.get('/all-categ', (req, res)=> {
         try {
             PdfDetailsSchema.find({ title: {$regex: req.body.Search, $options: 'i' }})
             .then((data) => {
-                console.log(data);
+                
                 res.send(data);
             })
 
@@ -135,7 +136,7 @@ router.get('/all-categ', (req, res)=> {
             PdfDetailsSchema.find({ title: {$regex: req.body.Search, $options: 'i' },
         category: category})
             .then((data) => {
-                console.log(data);
+                
                 res.send(data);
             })
 
@@ -167,9 +168,24 @@ router.post('/edit-pdf', async (req, res) => {
     const title = req.body.data.title;
     const category = req.body.data.category;
     const year = req.body.data.year;
+    var isTrue = true;
 
     const matchedTitles = await PdfDetailsSchema.find({title: title});
     if (matchedTitles.length > 0){
+        matchedTitles.forEach((title) => {
+            if (title._id == req.body.data._id)
+            {
+                isTrue = false;
+            }
+        })
+        
+    }
+    else{
+        isTrue = false;
+    }
+
+    if (isTrue)
+    {
         res.json({status: "There's an existing PDF with that title! Please try again."});
     }
     else {
@@ -203,5 +219,4 @@ router.post('/edit-pdf', async (req, res) => {
     };
 })
 
->>>>>>> Stashed changes
 module.exports = router;

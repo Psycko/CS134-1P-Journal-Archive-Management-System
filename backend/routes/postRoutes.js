@@ -12,6 +12,9 @@ const regStudentsSchema = mongoose.model("regStudents")
 require("../Schema/studInfo");
 const studInfoSchema = mongoose.model("studInfo")
 
+require("../Schema/pdfStatistics");
+const pdfStatistics = mongoose.model("pdfstat");
+
 //MULTER FOR FILE UPLOAD
 const multer  = require('multer');
 const storage = multer.diskStorage({
@@ -52,6 +55,9 @@ router.post("/upload-pdf", upload.single("File"), async (req, res) => {
                     year: year,
                     category: category,
                     destination: fileDest
+                })
+                await pdfStatistics.create({
+                    title: title
                 })
                 res.json({status: "Upload Success!"});
             } catch (error) {
@@ -120,6 +126,88 @@ router.get('/login', (req, res) => {
     } catch (error) {
         res.json({status: "Student not found!"});
     }
+})
+
+router.post('/viewAdd', (req, res) => {
+    const title = req.body.Title;
+    var count;
+    try {
+        pdfStatistics.findOne({title: title})
+            .then((data) => {
+                count = data.view;
+                data.view = count + 1;
+                data.save();
+                res.send({status: 200});
+            });
+        
+
+
+    } catch (error) {
+
+        res.send(error);
+    }
+})
+
+router.post('/downloadAdd', (req, res) => {
+    const title = req.body.Title;
+    var count;
+    try {
+        pdfStatistics.findOne({title: title})
+            .then((data) => {
+                count = data.download;
+                data.download = count + 1;
+                data.save();
+                res.send({status: 200});
+            });
+        
+
+
+    } catch (error) {
+
+        res.send(error);
+    }
+})
+
+
+
+const nodemailer = require('nodemailer');
+const transporter = nodemailer.createTransport({
+    service: 'hotmail',
+    auth: {
+        user: "digital.archive.otp@gmail.com",
+        pass: "dihjer-raswaG-6rexvo"
+    }
+});
+
+router.get('/generate2FA', (req, res) => {
+
+    var code = "";
+
+    for (let i = 0; i < 6; i++){
+        code += Math.floor((Math.random() * 10));;
+    }
+
+
+    const receive = {
+        from: "digital.archive.otp@gmail.com",
+        to: "jensenalmazora@gmail.com",
+        subject: "Test-Run",
+        text: "Your One Time Password is: " + code + "\nPlease use this to log-in"
+    };
+
+    transporter.sendMail(receive, function(error, info)
+    {
+        if (error) {
+            console.log(error);
+            return res.json(error);
+        }
+        else
+        {
+            return res.json({TwoFA: code});
+        }
+    });
+
+    
 })
 
 module.exports = router;
