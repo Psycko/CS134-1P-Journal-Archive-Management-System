@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import Sidebar from "../components/sidebar";
 
@@ -8,6 +8,8 @@ export default function Admin() {
     const [researchYear, setYear] = useState("");
     const [category, setCategory] = useState("");
     const [file, setFile] = useState("");
+
+    const inputRef = useRef(null);
 
     const submitFile= async(e) => {
         e.preventDefault();
@@ -24,9 +26,13 @@ export default function Admin() {
         },
             
         });
-
-        console.log(uploadAPI);
         alert(uploadAPI.data.status);
+        setTitle("");
+        setYear("");
+        setCategory("");
+        inputRef.current.value = null;
+
+
     }
 
     return(
@@ -41,7 +47,7 @@ export default function Admin() {
                             <label for="titleInput" class="col-sm-2 col-form-label">Title</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="titleInput" placeholder="Title" required
-                                onChange={(e) => setTitle(e.target.value)}/>
+                                onChange={(e) => setTitle(e.target.value)} value={researchTitle}/>
                             </div>
                         </div>
                     </div>
@@ -51,7 +57,7 @@ export default function Admin() {
                             <label for="yearInput" class="col-sm-2 col-form-label">Year</label>
                             <div class="col-sm-10">
                                 <input type='text' className='form-control' placeholder='Input here' id='yearInput' required
-                                onChange={(e) => setYear(e.target.value)}/>
+                                onChange={(e) => setYear(e.target.value)} value={researchYear}/>
                             </div>
                         </div>
                     </div>
@@ -61,27 +67,31 @@ export default function Admin() {
                         <legend class="col-form-label col-lg-2 pt-0 ">Category</legend>
                         <div class="col-sm-10" onChange={(e) => setCategory(e.target.value)} >
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="lsCateg" value="Life Science" required/>
+                                <input class="form-check-input" type="radio" name="gridRadios" id="lsCateg" value="Life Science" required
+                                checked={category === 'Life Science'}/>
                                 <label class="form-check-label" for="lsCateg">
                                 Life Science
                                 </label>
                             </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="ssCateg" value="Social Science" required/>
+                            <input class="form-check-input" type="radio" name="gridRadios" id="ssCateg" value="Social Science" required
+                            checked={category === 'Social Science'}/>
                             <label class="form-check-label" for="ssCateg">
                             Social Science
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="mathCateg" value="Mathematics" required/>
+                            <input class="form-check-input" type="radio" name="gridRadios" id="mathCateg" value="Mathematics" required
+                            checked={category === 'Mathematics'}/>
                             <label class="form-check-label" for="mathCateg">
                             Mathematics
                             </label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="robCateg" value="Robotics" required/>
+                            <input class="form-check-input" type="radio" name="gridRadios" id="robCateg" value="Robotics" required
+                            checked={category === 'Robotics'}/>
                             <label class="form-check-label" for="robCateg">
                             Robotics
                             </label>
@@ -95,8 +105,8 @@ export default function Admin() {
 
                     <div class="form-group">
                         <div class="mb-3">
-                            <input type='file' className='form-control' accept='application/pdf' required
-                            onChange={(e) => setFile(e.target.files[0])}/>
+                        <input  ref={inputRef} type='file' className='form-control' accept='application/pdf' required
+                    onChange={(e) => setFile(e.target.files[0])} /> 
                         </div>
                     </div>
                     

@@ -3,6 +3,10 @@ const app = express();
 const cors = require('cors')
 const pdfRoutes = require('./routes/pdfRoutes');
 const postRoutes = require('./routes/postRoutes');
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 app.use(cors())
 app.use("/uploads", express.static("uploads"));
@@ -26,6 +30,7 @@ mongoose.connect(dbURL,
     })
 .catch(e =>
     console.log(e));
+
 
 app.use('/', postRoutes);
 app.use('/', pdfRoutes);
