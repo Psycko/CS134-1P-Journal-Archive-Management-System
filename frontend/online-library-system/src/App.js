@@ -11,6 +11,8 @@ import Register from './pages/Register';
 import AdminLogin from './pages/AdminLogin';
 import Dashboard from './pages/studMonitor';
 import PDFManagement from './pages/pdfManagement';
+import PDFMonitor from './pages/pdfMonitor';
+import AccountManagement from './pages/accountManagement';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path="admin-monitor" element={<Dashboard/>} />
           <Route path="admin-access" element={<Admin/> } />
           <Route path="admin-pdf-management" element={<PDFManagement/>} />
+          <Route path="admin-pdf-monitor" element={<PDFMonitor/>} />
+          <Route path="admin-student-management" element={<AccountManagement/>} />
           <Route path="*" element={<Error404/>} />
           
         </Routes>

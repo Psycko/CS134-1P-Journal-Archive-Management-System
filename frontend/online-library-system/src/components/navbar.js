@@ -5,19 +5,24 @@ export default function Header() {
     return (
         <div>
         
-          <nav class="navbar navbar-light bg-light">
+          <nav class="navbar navbar-light tw-bg-steel-blue">
             <div class="container-fluid">
               <a class="navbar-brand">
                 <img src={logo} width="40" alt="Logo" height="40" class="d-inline-block"/>
-                <label class="tw-pl-2">Online Archive System</label>
+                <label class="tw-pl-2 tw-font-rubik">Online Archive System</label>
               </a>
-      
+
+              <div class="tw-bg-steel-blue tw-rounded-lg">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
+              </div>
+              
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <Link class="nav-link active" aria-current="page" to="/category/all">Home</Link>
+                  <Link class="nav-link active" aria-current="page" to="/category/all">
+                    <label class="tw-cursor-pointer">Home</label>
+                  </Link>
                   <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Manuscripts</a>
                   <ul class="dropdown-menu">
                     <li>

@@ -168,40 +168,24 @@ export default function PDFManagement() {
                                 ? <input value={d.year} name="year" onChange={(e) => {editValue(e, i)}}></input>
                                 : <>{d.year}</>}</td>
                             <td class="tw-w-[30px]">{ d.state
-                                ? <button class="btn btn-primary" onClick={(e) => {d.state = false; doneButton(e, d)}}>Done</button>
-                                : <button class="btn btn-primary" onClick={() => {d.state = true;editButton(d)}}>Edit</button>
+                                ? <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
+                                    onClick={(e) => {d.state = false; doneButton(e, d)}}>
+                                        <label class="tw-cursor-pointer tw-text-gray-100">Done</label></button>
+                                : <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
+                                    onClick={() => {d.state = true;editButton(d)}}>
+                                        <label class="tw-cursor-pointer tw-text-gray-100">Edit</label></button>
                             }</td>
-                            <td class="tw-w-[30px]"><button class="btn btn-primary" onClick={(e) => deleteButton(e, d.title)}>Delete</button></td>
+                            <td class="tw-w-[30px]">
+                                <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
+                                    onClick={(e) => deleteButton(e, d.title)}>
+                                        <label class="tw-cursor-pointer tw-text-gray-100">Delete</label></button>
+                            </td>
                         </tr>
 
                         ))}
                     </tbody>
                 </table>
 
-
-                <table class="table table-striped tw-text-center" >
-                    <thead class="tw-text-center">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">View Count</th>
-                            <th scope="col">Download Count</th>
-                        </tr>
-                        
-                    </thead>
-
-                    <tbody>
-                        {pdfStats.map((d, i) => (
-                        <tr key={i}>
-                            <th scope="row">{i+1}</th>
-                            <td>{d.title}</td>
-                            <td>{d.view}</td>
-                            <td>{d.download}</td>
-                        </tr>
-
-                        ))}
-                    </tbody>
-                </table>
             </div>
         </div>
         </>

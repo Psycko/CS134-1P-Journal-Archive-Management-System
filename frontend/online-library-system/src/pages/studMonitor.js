@@ -10,15 +10,13 @@ export default function Monitor() {
         .catch(err => console.log(err));
     }, [])
 
-    console.log(credData.lrn)
-
     const [studData, setStud] = useState([])
     useEffect(() => {
         fetch('http://localhost:8081/student-list')
         .then(res => res.json())
         .then(studData => setStud(studData))
         .catch(err => console.log(err));
-    })
+    }, [])
 
     return (
         <>
@@ -68,7 +66,7 @@ export default function Monitor() {
                                 <th>{d.lrn}</th>
                                 <td>{d.lastname}</td>
                                 <td>{d.firstname}</td>
-                                <td class="tw-w-[30px]">{d.middlename}</td>
+                                <td class="tw-w-[30px]">{(d.middlename)[0] + "."}</td>
                                 <td>{d.birthday}</td>
                             </tr>
 

@@ -11,7 +11,11 @@ export default function Sidebar() {
     }
 
     const navToStat = () => {
-        navigate('/admin-access');
+        navigate('/admin-pdf-monitor');
+    }
+
+    const navToManagement = () => {
+        navigate('/admin-pdf-management');
     }
 
     const navToMonitor = () => {
@@ -19,7 +23,7 @@ export default function Sidebar() {
     }
 
     const navToAccount = () => {
-        navigate('/admin-access');
+        navigate('/admin-student-management');
     }
 
     const navToLogin = () => {
@@ -29,7 +33,7 @@ export default function Sidebar() {
     return (
         <>
         <div>
-            <div class={`${open ? "tw-w-72" : "tw-w-20" } tw-flex tw-flex-col tw-bg-blue tw-h-screen tw-pt-8 tw-relative tw-duration-300`}>
+            <div class={`${open ? "tw-w-72" : "tw-w-20" } tw-flex tw-flex-col tw-bg-dark-blue tw-h-screen tw-pt-8 tw-relative tw-duration-300`}>
                 <div class="tw-flex tw-basis-5 tw-mx-auto">
                     <img src={logo} class={`tw-duration-500 tw-cursor-pointer tw-h-20 tw-w-20 ${ open && "tw-w-[200px] tw-h-[200px]"}`} onClick={() => setOpen(!open)}/>
                 </div>
@@ -37,8 +41,14 @@ export default function Sidebar() {
                 <div class="tw-mt-3 tw-flex tw-flex-col tw-duration-300 tw-cursor-pointer tw-gap-y-2 tw-mx-5">
                     <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
                         onClick={navToPDF}>   
-                        <i class={`${open && "tw-mr-2"} bi bi-file-earmark-plus-fill tw-cursor-pointer`}/>
-                        <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Manage PDF</label>
+                        <i class={`${open && "tw-mr-2"} bi bi-file-arrow-down-fill tw-cursor-pointer`}/>
+                        <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Upload PDF</label>
+                    </button>
+
+                    <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
+                        onClick={navToManagement}>   
+                        <i class={`${open && "tw-mr-2"} bi bi-pencil-square tw-cursor-pointer`}/>
+                        <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Edit PDF</label>
                     </button>
 
                     <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
@@ -54,7 +64,7 @@ export default function Sidebar() {
                     </button>
 
                     <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
-                        onclick={navToAccount}>
+                        onClick={navToAccount}>
                         <i class={`${open && "tw-mr-2"} bi bi-person-fill-gear tw-cursor-pointer`}></i>
                         <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Account Settings</label>
                     </button>
