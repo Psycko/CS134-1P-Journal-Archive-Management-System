@@ -15,6 +15,9 @@ const studInfoSchema = mongoose.model("studInfo")
 require("../Schema/pdfStatistics");
 const pdfStatistics = mongoose.model("pdfstat");
 
+require("../Schema/regStudents");
+const studentCreds = mongoose.model("regStudents");
+
 //MULTER FOR FILE UPLOAD
 const multer  = require('multer');
 const storage = multer.diskStorage({
@@ -210,4 +213,16 @@ router.get('/generate2FA', (req, res) => {
     
 })
 
+router.get('/getCredentials', (req, res) => {
+    try {
+        studentCreds.find({})
+        .then((data) => {
+            res.send(data);
+        })
+    } catch (error) {
+        res.send(error);
+    }
+    
+    
+})
 module.exports = router;
