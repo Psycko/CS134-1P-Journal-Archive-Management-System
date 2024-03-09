@@ -33,7 +33,7 @@ export default function Sidebar() {
     return (
         <>
         <div>
-            <div class={`${open ? "tw-w-72" : "tw-w-20" } tw-flex tw-flex-col tw-bg-blue tw-h-screen tw-pt-8 tw-relative tw-duration-300`}>
+            <div class={`${open ? "tw-w-72" : "tw-w-20" } tw-flex tw-flex-col tw-bg-dark-blue tw-h-screen tw-pt-8 tw-relative tw-duration-300`}>
                 <div class="tw-flex tw-basis-5 tw-mx-auto">
                     <img src={logo} class={`tw-duration-500 tw-cursor-pointer tw-h-20 tw-w-20 ${ open && "tw-w-[200px] tw-h-[200px]"}`} onClick={() => setOpen(!open)}/>
                 </div>

@@ -17,10 +17,15 @@ module.exports = {
         'bebas-neue': ['Bebas Neue'],
         'inter': ['Inter'],
         'archivo-black': ['Archivo Black'],
+        'rubik': ['Rubik'],
       },
 
       colors: {
-        'blue': '#002366',
+        'dark-blue': '#002366',
+        'steel-blue': '#88acd4',
+        'green': '#648c98',
+        'dark-green': '#53737D',
+        'dark-steel': '#6e90a9',
       }
     },
   },

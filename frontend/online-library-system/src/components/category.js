@@ -90,10 +90,9 @@ export default function Category({search, category}) {
                         <th scope="col">Title</th>
                         <th scope="col">Category</th>
                         <th scope="col">Year Published</th>
-                        <th scope="col">View</th>
-                        <th scope="col">Download</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
-                    
                 </thead>
 
                 <tbody>
@@ -103,8 +102,18 @@ export default function Category({search, category}) {
                         <td>{d.title}</td>
                         <td>{d.category}</td>
                         <td>{d.year}</td>
-                        <td class="tw-w-[30px]"><button class="btn btn-primary" onClick={()=> ShowPDF(d.destination, d.title)}>View</button></td>
-                        <td class="tw-w-[30px]"><button class="btn btn-primary" onClick={() => DownloadPDF(d.destination, d.title)}>Download</button></td>
+                        <td class="tw-w-[30px]">
+                            <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
+                                onClick={()=> ShowPDF(d.destination, d.title)}>
+                                <label class="tw-cursor-pointer tw-text-gray-100">View</label>
+                            </button>
+                        </td>
+                        <td class="tw-w-[30px]">
+                            <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
+                                onClick={()=> ShowPDF(d.destination, d.title)}>
+                                <label class="tw-cursor-pointer tw-text-gray-100">Download</label>
+                            </button>
+                        </td>
                     </tr>
 
                     ))}
