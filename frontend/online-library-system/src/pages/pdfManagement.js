@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Sidebar from "../components/sidebar"
 
+
 export default function PDFManagement() {
     const [primaryData, setPrimary] = useState([]);
     const [data, setData] = useState([]);
@@ -41,6 +42,8 @@ export default function PDFManagement() {
             .catch(err => console.log(err));
     }, [deleted, edited]);
 
+
+    
     const editButton = () => {
        const editData = data.map((d) =>
        ( {...d }) )
@@ -114,7 +117,14 @@ export default function PDFManagement() {
             setEdit(true);
 
             editButton();
+            
+
+
+            
     }
+    
+    
+
 
     return (
         <>
@@ -122,7 +132,8 @@ export default function PDFManagement() {
             <div>
                 <Sidebar/>
             </div>
-
+            
+            
             <div class="category table-striped table-responsive tw-m-auto tw-w-[70%]">
                 <table class="table table-striped tw-text-center">
                     <thead class="tw-text-center">
@@ -175,30 +186,6 @@ export default function PDFManagement() {
                     </tbody>
                 </table>
 
-
-                {/* <table class="table table-striped tw-text-center" >
-                    <thead class="tw-text-center">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">View Count</th>
-                            <th scope="col">Download Count</th>
-                        </tr>
-                        
-                    </thead>
-
-                    <tbody>
-                        {pdfStats.map((d, i) => (
-                        <tr key={i}>
-                            <th scope="row">{i+1}</th>
-                            <td>{d.title}</td>
-                            <td>{d.view}</td>
-                            <td>{d.download}</td>
-                        </tr>
-
-                        ))}
-                    </tbody>
-                </table> */}
             </div>
         </div>
         </>
