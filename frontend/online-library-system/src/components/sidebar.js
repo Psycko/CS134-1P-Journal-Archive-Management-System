@@ -11,7 +11,11 @@ export default function Sidebar() {
     }
 
     const navToStat = () => {
-        navigate('/admin-access');
+        navigate('/admin-pdf-monitor');
+    }
+
+    const navToManagement = () => {
+        navigate('/admin-pdf-management');
     }
 
     const navToMonitor = () => {
@@ -37,8 +41,14 @@ export default function Sidebar() {
                 <div class="tw-mt-3 tw-flex tw-flex-col tw-duration-300 tw-cursor-pointer tw-gap-y-2 tw-mx-5">
                     <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
                         onClick={navToPDF}>   
-                        <i class={`${open && "tw-mr-2"} bi bi-file-earmark-plus-fill tw-cursor-pointer`}/>
-                        <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Manage PDF</label>
+                        <i class={`${open && "tw-mr-2"} bi bi-file-arrow-down-fill tw-cursor-pointer`}/>
+                        <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Upload PDF</label>
+                    </button>
+
+                    <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
+                        onClick={navToManagement}>   
+                        <i class={`${open && "tw-mr-2"} bi bi-pencil-square tw-cursor-pointer`}/>
+                        <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Edit PDF</label>
                     </button>
 
                     <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}

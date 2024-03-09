@@ -40,12 +40,6 @@ export default function Category({search, category}) {
             .catch(err => console.log(err));
         }
             
-           
-
-            
-            
-        
-
     }, [search])
 
     const ShowPDF = (pdfdestination, title) => {
@@ -89,7 +83,7 @@ export default function Category({search, category}) {
     }
     return(
         <div class="category table-striped table-responsive tw-m-auto tw-w-[70%]">
-            <table class="table table-striped tw-text-center">
+            <table class="table table-striped tw-text-center tw-opacity-[90%]">
                 <thead class="tw-text-center">
                     <tr>
                         <th scope="col">#</th>

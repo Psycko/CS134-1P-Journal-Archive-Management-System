@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const studInfoSchema = new Schema({
   lrn: String, // String is shorthand for {type: String}
-  lastname: Number,
+  lastname: String,
   firstname: String,
   middlename: String,
   birthday: String,
