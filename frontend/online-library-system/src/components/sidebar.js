@@ -23,7 +23,7 @@ export default function Sidebar() {
     }
 
     const navToAccount = () => {
-        navigate('/admin-access');
+        navigate('/admin-student-management');
     }
 
     const navToLogin = () => {
@@ -64,7 +64,7 @@ export default function Sidebar() {
                     </button>
 
                     <button class={`${!open && "tw-text-2xl tw-text-center" } tw-text-left tw-text-lg tw-w-full tw-rounded-md tw-py-2 tw-border-none tw-bg-transparent tw-text-white hover:tw-bg-slate-500`}
-                        onclick={navToAccount}>
+                        onClick={navToAccount}>
                         <i class={`${open && "tw-mr-2"} bi bi-person-fill-gear tw-cursor-pointer`}></i>
                         <label class={`${!open && "tw-hidden"} tw-cursor-pointer`}>Account Settings</label>
                     </button>

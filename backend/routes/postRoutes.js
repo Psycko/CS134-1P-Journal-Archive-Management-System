@@ -15,6 +15,9 @@ const studInfoSchema = mongoose.model("studInfo")
 require("../Schema/pdfStatistics");
 const pdfStatistics = mongoose.model("pdfstat");
 
+require("../Schema/regStudents");
+const studentCreds = mongoose.model("regStudents");
+
 //MULTER FOR FILE UPLOAD
 const multer  = require('multer');
 const storage = multer.diskStorage({
@@ -210,4 +213,46 @@ router.get('/generate2FA', (req, res) => {
     
 })
 
+router.get('/getCredentials', (req, res) => {
+    try {
+        studentCreds.find({})
+        .then((data) => {
+            res.send(data);
+        })
+    } catch (error) {
+        res.send(error);
+    }
+    
+    
+})
+
+router.post('/editCredentials', (req, res) => {
+    const id = req.body.data._id;
+
+    try {
+        studentCreds.findById(id)
+        .then((data) => {
+            data.password = req.body.data.password;
+            data.save();
+            res.send({status: "Changing Password Success!"});
+        });
+    } catch (error) {
+        res.send(error);
+    }
+})
+
+router.post('/deleteCredentials', async (req, res) => {
+    const id = req.body.id;
+
+    try {
+        await studentCreds.findByIdAndDelete(id);
+
+        res.send({status: "Successfully Deleted!"});
+        
+        
+    } catch (error) {
+
+        res.send({status: {error}});
+    }
+})
 module.exports = router;
