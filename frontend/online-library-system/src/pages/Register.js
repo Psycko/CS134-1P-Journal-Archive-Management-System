@@ -51,7 +51,7 @@ export default function Register() {
                 <h1 class="tw-text-7xl">High School</h1>
                 <h3 class="tw-p-0.5">Region 1</h3>
             </div>
-            <div class="tw-bg-gray-100 tw-bg-opacity-[40%] tw-h-max tw-shadow-lg tw-rounded-lg">
+            <div class="md:tw-bg-gray-100 sm:tw-bg-gray-200 md:tw-bg-opacity-[40%] sm:tw-bg-opacity-[70%] tw-h-max tw-shadow-lg tw-rounded-lg">
                 <div class="tw-pt-5 tw-flex tw-justify-center tw-items-center tw-font-roboto">
                     <img src={logo} class="tw-h-20 tw-w-20 tw-text-left" alt="RSHS Logo"/>
                     <h1>Sign Up</h1>
@@ -60,19 +60,19 @@ export default function Register() {
                     <div class="elements tw-p-2.5 tw-w-full">
                         <div class="form-group">
                             <label for="lrnLabel">Student LRN </label>
-                            <input class="form-control" id="lrnInput" placeholder="LRN" required onChange={(e) => setLrn(e.target.value)} value={studentLrn}/>
+                            <input class="form-control focus:tw-placeholder-transparent" id="lrnInput" placeholder="LRN" required onChange={(e) => setLrn(e.target.value)} value={studentLrn}/>
                         </div>
                     </div>
                     <div class="elements tw-p-2.5 tw-w-full">
                         <div class="form-group">
                                 <label for="passwordInput">Password</label>
-                                <input type="password" class="form-control" id="passwordInput" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} value={studentPass}/>
+                                <input type="password" class="form-control focus:tw-placeholder-transparent" id="passwordInput" placeholder="Password" required onChange={(e) => setPassword(e.target.value)} value={studentPass}/>
                             </div>
                     </div>
                     <div class="elements tw-p-2.5 tw-w-full">
                         <div class="form-group">
                                 <label for="passwordInput">Confirm Password</label>
-                                <input type="password" class="form-control" id="passwordInput" placeholder="Password" required onChange={(e) => checkPassword(e.target.value)} value={confirmPass}/>
+                                <input type="password" class="form-control focus:tw-placeholder-transparent" id="passwordInput" placeholder="Password" required onChange={(e) => checkPassword(e.target.value)} value={confirmPass}/>
                             </div>
                     </div>
                     <div class="elements tw-p-2.5 tw-w-full tw-font-roboto">
