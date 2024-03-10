@@ -20,7 +20,7 @@ export default function Robotics() {
 
                 <h1 class="display-4 tw-m-auto tw-w-5/6 tw-p-20 tw-text-center">Robotics</h1>        
                 
-                <div class="tw-flex tw-flex-col">
+                <div class="tw-flex tw-flex-col tw-fixed">
                     <div class="tw-ml-[880px]">
                         <Searchbar search={handleSearch}/>
                     </div>  

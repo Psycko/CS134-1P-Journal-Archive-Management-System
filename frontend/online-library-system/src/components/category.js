@@ -82,7 +82,7 @@ export default function Category({search, category}) {
         .catch(err => console.error(err));
     }
     return(
-        <div class="category table-striped table-responsive tw-m-auto tw-w-[70%]">
+        <div class="category table-striped table-responsive tw-m-auto">
             <table class="table table-striped tw-text-center tw-opacity-[90%]">
                 <thead class="tw-text-center">
                     <tr>
