@@ -23,9 +23,9 @@ export default function Monitor() {
         <div class="tw-flex tw-bg-gray-50 tw-min-h-dvh">
             <div>
                 <Sidebar /> 
-            </div>
+            </div>  
             <div class="tw-flex sm:tw-flex-wrap tw-flex-row tw-gap-x-[30px] tw-w-full md:tw-mx-20 md:tw-mt-[100px] sm:tw-m-5 tw-align-top">
-                <div class="category table-striped table-responsive md:tw-w-[50%] sm:tw-w-full tw-flex tw-align-center tw-flex-col">
+                <div class="category table-striped table-responsive md:tw-w-[50%] sm:tw-w-full tw-flex tw-flex-col">
                     <label class="tw-text-center tw-text-4xl tw-my-3">Registered Students</label>
                     <table class="table table-striped tw-text-center">
                         <thead class="tw-text-center">

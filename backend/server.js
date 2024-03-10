@@ -18,7 +18,13 @@ const PdfDetailsSchema = mongoose.model("PdfDetails");
 
 //Schema for regStudent
 require("./Schema/regStudents");
-const regStudentsSchema = mongoose.model("regStudents")
+const regStudentsSchema = mongoose.model("regStudents");
+
+// require("./Schema/pdfStatistics");
+// const PDFStatSchema = mongoose.model("pdfStatistics");
+
+// require("./Schema/studInfo");
+// const studInfoSchema = mongoose.model("studInfo");
 
 mongoose.connect(dbURL,
     )
