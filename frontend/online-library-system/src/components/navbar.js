@@ -19,8 +19,8 @@ export default function Header() {
               </a>
 
               <div class="tw-bg-steel-blue tw-rounded-lg">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+              <button class="tw-rounded-full tw-h-[40px] tw-border-none tw-bg-transparent hover:tw-bg-gray-50 hover:tw-bg-opacity-[25%] tw-duration-500 hover:tw-rotate-180" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="bi bi-list tw-text-3xl"></i>
               </button>
               </div>
               

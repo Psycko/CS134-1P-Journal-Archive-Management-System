@@ -122,12 +122,6 @@ export default function Category({search, category}) {
                                 <i class="bi bi-download tw-text-xl tw-text-text-blue"></i>
                             </button>
                         </td>
-                        {/* <td class="tw-w-[30px]">
-                            <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
-                                onClick={()=> ShowPDF(d.destination, d.title)}>
-                                <label class="tw-cursor-pointer tw-text-gray-100">Download</label>
-                            </button>
-                        </td> */}
                     </tr>
 
                     ))}

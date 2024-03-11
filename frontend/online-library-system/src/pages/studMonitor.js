@@ -37,9 +37,11 @@ export default function Monitor() {
 
                         <tbody>
                             {credData.map((d, i) => (
+
+                                // var varx = Date(d.regDate)
                             <tr key={i}>
                                 <th class="tw-w-[30px]">{d.lrn}</th>
-                                <td>{d.regDate}</td>
+                                <td>{Date(d.regDate).split('G')[0]}</td>
                             </tr>
 
                             ))}
