@@ -23,9 +23,13 @@ module.exports = {
       colors: {
         'dark-blue': '#002366',
         'steel-blue': '#88acd4',
-        'green': '#648c98',
-        'dark-green': '#53737D',
+        'green': '#59B793',
+        'dark-green': '#5DA98E',
         'dark-steel': '#6e90a9',
+        'btn-blue': '#8ea9c1',
+        'text-blue': '#1C4264',
+        'btn-landing': '#619644',
+        'btn-dark': '#4F7739',
       }
     },
   },

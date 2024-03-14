@@ -1,20 +1,26 @@
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import logo from '../img/RSHS_1_Logo.png';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
+    const navigate = useNavigate();
+
+    const navToHome = () => {
+        navigate('/category/all');
+    }
+
     return (
         <div>
-        
-          <nav class="navbar navbar-light tw-bg-steel-blue">
+          <nav class="navbar navbar-light tw-bg-steel-blue tw-sticky">
             <div class="container-fluid">
               <a class="navbar-brand">
-                <img src={logo} width="40" alt="Logo" height="40" class="d-inline-block"/>
+                <img src={logo} width="40" alt="Logo" height="40" class="d-inline-block tw-cursor-pointer" onClick={navToHome}/>
                 <label class="tw-pl-2 tw-font-rubik">Online Archive System</label>
               </a>
 
               <div class="tw-bg-steel-blue tw-rounded-lg">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+              <button class="tw-rounded-full tw-h-[40px] tw-border-none tw-bg-transparent hover:tw-bg-gray-50 hover:tw-bg-opacity-[25%] tw-duration-500 hover:tw-rotate-180" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="bi bi-list tw-text-3xl"></i>
               </button>
               </div>
               
