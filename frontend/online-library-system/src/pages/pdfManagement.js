@@ -123,69 +123,67 @@ export default function PDFManagement() {
             
     }
     
-    
-
-
     return (
         <>
         <div class="tw-flex tw-bg-gray-50 tw-min-h-dvh">
             <div>
                 <Sidebar/>
             </div>
-            
-            
-            <div class="category table-striped table-responsive tw-m-auto tw-w-[70%]">
-                <table class="table table-striped tw-text-center">
-                    <thead class="tw-text-center">
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Year Published</th>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
+
+            <div class="tw-flex tw-w-full md:tw-mx-20 md:tw-mt-[100px] sm:tw-m-5 tw-align-top">
+                <div class="category table-striped table-responsive md:tw-w-full sm:tw-w-full tw-flex tw-items-center tw-flex-col">
+                    <table class="table table-striped tw-text-center">
+                        <thead class="tw-text-center">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Year Published</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                            
+                        </thead>
+
+                        <tbody>
+                            {data.map((d, i) => (
                         
-                    </thead>
+                            <tr key={i}>
+                                <th scope="row">{i+1}</th>
+                                <td>{d.state
+                                    ? <input value={d.title} name="title" onChange={(e) => {editValue(e, i)}}></input>
+                                    : <>{d.title}</>}</td>
+                                <td>{d.state
+                                    ? <select name="category" value={d.category} onChange={(e)=> {editValue(e, i)}}>
+                                        <option value="Mathematics">Mathematics</option>
+                                        <option value="Life Science">Life Science</option>
+                                        <option value="Robotics">Robotics</option>
+                                        <option value="Social Science">Social Science</option>
+                                    </select>
+                                    : <>{d.category}</>}</td>
+                                <td>{d.state
+                                    ? <input value={d.year} name="year" onChange={(e) => {editValue(e, i)}}></input>
+                                    : <>{d.year}</>}</td>
+                                <td class="tw-w-[30px]">{ d.state
+                                    ? <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
+                                        onClick={(e) => {d.state = false; doneButton(e, d)}}>
+                                            <label class="tw-cursor-pointer tw-text-gray-100">Done</label></button>
+                                    : <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
+                                        onClick={() => {d.state = true;editButton(d)}}>
+                                            <label class="tw-cursor-pointer tw-text-gray-100">Edit</label></button>
+                                }</td>
+                                <td class="tw-w-[30px]">
+                                    <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
+                                        onClick={(e) => deleteButton(e, d.title)}>
+                                            <label class="tw-cursor-pointer tw-text-gray-100">Delete</label></button>
+                                </td>
+                            </tr>
 
-                    <tbody>
-                        {data.map((d, i) => (
-                       
-                        <tr key={i}>
-                            <th scope="row">{i+1}</th>
-                            <td>{d.state
-                                ? <input value={d.title} name="title" onChange={(e) => {editValue(e, i)}}></input>
-                                : <>{d.title}</>}</td>
-                            <td>{d.state
-                                ? <select name="category" value={d.category} onChange={(e)=> {editValue(e, i)}}>
-                                    <option value="Mathematics">Mathematics</option>
-                                    <option value="Life Science">Life Science</option>
-                                    <option value="Robotics">Robotics</option>
-                                    <option value="Social Science">Social Science</option>
-                                </select>
-                                : <>{d.category}</>}</td>
-                            <td>{d.state
-                                ? <input value={d.year} name="year" onChange={(e) => {editValue(e, i)}}></input>
-                                : <>{d.year}</>}</td>
-                            <td class="tw-w-[30px]">{ d.state
-                                ? <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
-                                    onClick={(e) => {d.state = false; doneButton(e, d)}}>
-                                        <label class="tw-cursor-pointer tw-text-gray-100">Done</label></button>
-                                : <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
-                                    onClick={() => {d.state = true;editButton(d)}}>
-                                        <label class="tw-cursor-pointer tw-text-gray-100">Edit</label></button>
-                            }</td>
-                            <td class="tw-w-[30px]">
-                                <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
-                                    onClick={(e) => deleteButton(e, d.title)}>
-                                        <label class="tw-cursor-pointer tw-text-gray-100">Delete</label></button>
-                            </td>
-                        </tr>
+                            ))}
+                        </tbody>
+                    </table>
 
-                        ))}
-                    </tbody>
-                </table>
-
+                </div>
             </div>
         </div>
         </>
