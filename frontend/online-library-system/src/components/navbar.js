@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import logo from '../img/RSHS_1_Logo.png';
 import { useNavigate } from 'react-router-dom';
 import { Delete } from '../hooks/authorize';

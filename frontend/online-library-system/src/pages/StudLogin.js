@@ -1,4 +1,4 @@
-import { json, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import logo from '../img/RSHS_1_Logo.png';
 import { useState } from 'react';
 

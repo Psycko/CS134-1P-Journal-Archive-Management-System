@@ -37,9 +37,7 @@ router.post("/getToken", async (req, res) => {
                         expiresIn: '6h',
                     });
                     
-                //  const decoded = jwt.decode(token, "Secret");
-                    //console.log(decoded);
-                    console.log(token);
+
                     res.json({status: "Success!", token: token});
 
                 }
@@ -164,7 +162,6 @@ const generate2fa = (email, code) => {
         }
         else{
             console.log("Code Sent to " + email);
-            return code;
         }
     });
 

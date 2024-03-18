@@ -12,6 +12,7 @@ export default function OTPModal({otp, token, visible, onClose }) {
 
     const userInput = one + two + three + four + five + six;
     
+    
 
     const verifyOTP = (e) => {
         if (userInput === otp) {
