@@ -11,8 +11,8 @@ export default function Header() {
     }
 
     return (
-        <div>
-          <nav class="navbar navbar-light tw-bg-steel-blue tw-sticky">
+        <div class="tw-top-0 tw-inset-x-0 tw-fixed tw-w-full">
+          <nav class="navbar navbar-light tw-bg-steel-blue">
             <div class="container-fluid">
               <a class="navbar-brand">
                 <img src={logo} width="40" alt="Logo" height="40" class="d-inline-block tw-cursor-pointer" onClick={navToHome}/>

@@ -110,8 +110,8 @@ export default function Admin() {
                         </div>
                     </div>
                     
-                    <button type="submit" class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-6 tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500">
-                    <label class="tw-cursor-pointer tw-text-gray-100">Submit</label>
+                    <button type="submit" class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-6 tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500 tw-text-white">
+                        Submit
                     </button>
                 </form>
             </div>
