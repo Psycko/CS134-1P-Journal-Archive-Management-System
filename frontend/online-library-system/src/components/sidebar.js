@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import logo from '../img/RSHS_1_Logo.png'
+import { Delete } from '../hooks/authorize';
 
 export default function Sidebar() {
     const [open, setOpen] = useState(true);
@@ -27,6 +28,7 @@ export default function Sidebar() {
     }
 
     const navToLogin = () => {
+        Delete();
         navigate('/admin-login');
     }
 

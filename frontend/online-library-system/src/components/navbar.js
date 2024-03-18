@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import logo from '../img/RSHS_1_Logo.png';
 import { useNavigate } from 'react-router-dom';
+import { Delete } from '../hooks/authorize';
 
 export default function Header() {
     const navigate = useNavigate();
@@ -32,11 +33,11 @@ export default function Header() {
                   <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Manuscripts</a>
                   <ul class="dropdown-menu">
                     <li>
-                      <Link class="dropdown-item" to="/category/lifescience"> Life Science</Link>
+                      <Link class="dropdown-item" to="/category/lifescience">Life Science</Link>
                     </li>
 
                     <li>
-                      <Link class="dropdown-item" to="/category/socialscience"> Social Science</Link>
+                      <Link class="dropdown-item" to="/category/socialscience">Social Science</Link>
                     </li>
 
                     <li>
@@ -48,7 +49,14 @@ export default function Header() {
                     </li>
 
                   </ul>
+                  <Link class="nav-link active" aria-current="page" to="/login">
+                    <label class="tw-cursor-pointer" onClick={Delete}>Sign Out</label>
+                  </Link>
                 </div>
+
+                {/* <div class="navbar-nav">
+                <Link class="" to="/">Sign Out</Link>
+                </div> */}
               </div>
             </div>
           </nav>

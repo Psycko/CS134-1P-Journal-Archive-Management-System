@@ -38,7 +38,7 @@ export default function OTPModal({otp, token, visible, onClose }) {
 
     return (
         <div class="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-25 tw-backdrop-blur-sm tw-flex tw-items-center tw-justify-center">
-            <div class="tw-bg-gray-50 tw-rounded-lg tw-shadow-lg md:tw-w-[20%] md:tw-h-[40%] sm:tw-w-full sm:tw-mx-5 sm:tw-h-[45%]">
+            <div class="tw-bg-gray-50 tw-rounded-lg tw-shadow-lg md:tw-p-5 sm:tw-w-full sm:tw-mx-5 sm:tw-h-[45%]">
                 <div class="tw-flex tw-flex-row-reverse">
                     <button class="tw-border-none tw-bg-transparent tw-m-2" onClick={onClose}>
                         <i class="bi bi-x-lg"></i>
