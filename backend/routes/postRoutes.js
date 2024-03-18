@@ -250,4 +250,34 @@ router.post('/deleteCredentials', async (req, res) => {
         res.send({status: {error}});
     }
 })
+
+router.post('/editCredentials', (req, res) => {
+    const id = req.body.data._id;
+
+    try {
+        studentCreds.findById(id)
+        .then((data) => {
+            data.password = req.body.data.password;
+            data.save();
+            res.send({status: "Changing Password Success!"});
+        });
+    } catch (error) {
+        res.send(error);
+    }
+})
+
+router.post('/deleteCredentials', async (req, res) => {
+    const id = req.body.id;
+
+    try {
+        await studentCreds.findByIdAndDelete(id);
+
+        res.send({status: "Successfully Deleted!"});
+        
+        
+    } catch (error) {
+
+        res.send({status: {error}});
+    }
+})
 module.exports = router;

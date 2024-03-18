@@ -1,16 +1,53 @@
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import logo from '../img/RSHS_1_Logo.png';
+import { useState } from 'react';
 
 export default function StudLogin() {
+
     const navigate = useNavigate();
+    const [lrn, setLrn] = useState();
+    const [password, setPassword] = useState();
+
+    
 
     const navToSignUp = () => {
         navigate('/register');
     }
 
-    console.log("cj was here");
-    console.log("borge was here");
-    console.log("jensen was here");
+    const loginButton = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:8081/getToken', {
+            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({lrn: lrn, password: password})
+           // headers: new Headers({
+             //   "ngrok-skip-browser-warning": "89420",
+               // }),
+            }).then(res => res.json())
+            .then(data => {
+                if (data.status === "Success!") {
+                    alert(data.status);
+                    localStorage.setItem("token", JSON.stringify(data.token));
+                    console.log(localStorage.getItem("token"));
+                }
+                else if (data.status === "Incorrect LRN!") {
+                    alert(data.status);
+                    setLrn("");
+                    setPassword("");
+                }
+                else {
+                    alert(data.status);
+                    setPassword("");
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
 
     return (
         <>
@@ -29,17 +66,19 @@ export default function StudLogin() {
                     <div class="elements tw-p-2.5 tw-w-full">
                         <div class="form-group">
                             <label for="lrnLabel">Student LRN </label>
-                            <input class="form-control focus:tw-placeholder-transparent" id="lrnInput" placeholder="LRN" />
+                            <input class="form-control focus:tw-placeholder-transparent" id="lrnInput" placeholder="LRN" value={lrn} onChange={(e) => setLrn(e.target.value)}/>
                         </div>
                     </div>
                     <div class="elements tw-p-2.5 tw-w-full">
                         <div class="form-group">
                                 <label for="passwordInput">Password</label>
-                                <input type="password" class="form-control focus:tw-placeholder-transparent" id="passwordInput" placeholder="Password" />
+                                <input type="password" class="form-control focus:tw-placeholder-transparent" id="passwordInput" placeholder="Password" value={password}
+                                onChange={(e) => setPassword(e.target.value)}/>
                             </div>
                     </div>
                     <div class="elements tw-p-2.5 tw-w-full tw-font-roboto">
-                        <button type="login" class="lgnbutton tw-flex tw-justify-center tw-items-center tw-w-full tw-bg-btn-landing tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-btn-dark tw-duration-500">
+                        <button type="login" class="lgnbutton tw-flex tw-justify-center tw-items-center tw-w-full tw-bg-btn-landing tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-btn-dark tw-duration-500"
+                        onClick={(e) => loginButton(e)}>
                             <label class="tw-cursor-pointer tw-text-gray-50">Login</label></button>
                     </div>
                     <hr />

@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors')
 const pdfRoutes = require('./routes/pdfRoutes');
 const postRoutes = require('./routes/postRoutes');
+const tokenRoute = require('./routes/token');
 
 app.use(cors());
 app.use(express.json());
@@ -37,6 +38,7 @@ mongoose.connect(dbURL,
 
 app.use('/', postRoutes);
 app.use('/', pdfRoutes);
+app.use('/', tokenRoute);
 
 app.listen(8081, ()=> {
     console.log("listening");
