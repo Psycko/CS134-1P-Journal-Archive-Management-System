@@ -8,6 +8,8 @@ const AuthorizeUser = () => {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
+        if (token)
+        {
 
         fetch('http://localhost:8081/authorizeUser', {
             //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
@@ -27,6 +29,7 @@ const AuthorizeUser = () => {
                 }
             })
             .catch(err => console.log(err));
+        }
     }, [])
 
     return isUser;
@@ -39,9 +42,7 @@ const AuthorizeAdmin = () => {
     useEffect(() => {
       const token = localStorage.getItem("token");
 
-      if (!token) {
-        return isAdmin;
-      }
+      if (token) {
 
       fetch('http://localhost:8081/authorizeAdmin', {
             //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
@@ -61,6 +62,7 @@ const AuthorizeAdmin = () => {
                 }
             })
             .catch(err => console.log(err));
+        }
     }, [])
     
     return isAdmin
