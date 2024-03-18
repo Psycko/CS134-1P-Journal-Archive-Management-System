@@ -14,7 +14,7 @@ export default function Robotics() {
 
     return (
         <>
-        <div class="tw-bg-gray-100 tw-h-max tw-bg-auto tw-min-h-screen">
+        <div class="tw-bg-gray-100 tw-h-max tw-bg-auto tw-min-h-screen tw-z-0">
             <Header/>
 
             <div class="tw-flex tw-flex-col tw-items-center tw-w-full tw-gap-x-20">
