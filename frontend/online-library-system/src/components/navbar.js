@@ -1,6 +1,7 @@
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import logo from '../img/RSHS_1_Logo.png';
 import { useNavigate } from 'react-router-dom';
+import { Delete } from '../hooks/authorize';
 
 export default function Header() {
     const navigate = useNavigate();
@@ -48,8 +49,8 @@ export default function Header() {
                     </li>
 
                   </ul>
-                  <Link class="nav-link active" aria-current="page" to="/">
-                    <label class="tw-cursor-pointer">Sign Out</label>
+                  <Link class="nav-link active" aria-current="page" to="/login">
+                    <label class="tw-cursor-pointer" onClick={Delete}>Sign Out</label>
                   </Link>
                 </div>
 
