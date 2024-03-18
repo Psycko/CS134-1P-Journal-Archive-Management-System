@@ -6,7 +6,7 @@ export default function Header() {
     const navigate = useNavigate();
 
     const navToHome = () => {
-        navigate('/category/all');
+        navigate('/');
     }
 
     return (
@@ -26,7 +26,7 @@ export default function Header() {
               
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <Link class="nav-link active" aria-current="page" to="/category/all">
+                  <Link class="nav-link active" aria-current="page" to="/">
                     <label class="tw-cursor-pointer">Home</label>
                   </Link>
                   <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Manuscripts</a>

@@ -3,6 +3,7 @@ import Category from "../components/category"
 import Searchbar from "../components/searchbar";
 import { useState } from "react";
 
+
 export default function Home() {
 
     const [searchVal, setSearch] = useState("");
