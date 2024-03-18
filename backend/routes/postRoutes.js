@@ -169,47 +169,6 @@ router.post('/downloadAdd', (req, res) => {
 })
 
 
-
-const nodemailer = require('nodemailer');
-const transporter = nodemailer.createTransport({
-    service: 'hotmail',
-    auth: {
-        user: "digital.archive.otp@gmail.com",
-        pass: "dihjer-raswaG-6rexvo"
-    }
-});
-
-router.get('/generate2FA', (req, res) => {
-
-    var code = "";
-
-    for (let i = 0; i < 6; i++){
-        code += Math.floor((Math.random() * 10));;
-    }
-
-
-    const receive = {
-        from: "digital.archive.otp@gmail.com",
-        to: "jensenalmazora@gmail.com",
-        subject: "Test-Run",
-        text: "Your One Time Password is: " + code + "\nPlease use this to log-in"
-    };
-
-    transporter.sendMail(receive, function(error, info)
-    {
-        if (error) {
-            console.log(error);
-            return res.json(error);
-        }
-        else
-        {
-            return res.json({TwoFA: code});
-        }
-    });
-
-    
-})
-
 router.get('/getCredentials', (req, res) => {
     try {
         regStudentsSchema.find({})

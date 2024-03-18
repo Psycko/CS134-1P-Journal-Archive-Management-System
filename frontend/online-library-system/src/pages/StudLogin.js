@@ -22,7 +22,7 @@ export default function StudLogin() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({lrn: lrn, password: password})
+            body: JSON.stringify({lrn: lrn, password: password, user: "Student"})
            // headers: new Headers({
              //   "ngrok-skip-browser-warning": "89420",
                // }),
@@ -32,6 +32,8 @@ export default function StudLogin() {
                     alert(data.status);
                     localStorage.setItem("token", JSON.stringify(data.token));
                     console.log(localStorage.getItem("token"));
+                    navigate("/category/all");
+                    window.location.reload();
                 }
                 else if (data.status === "Incorrect LRN!") {
                     alert(data.status);
