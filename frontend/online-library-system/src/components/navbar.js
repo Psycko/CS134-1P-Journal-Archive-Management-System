@@ -50,7 +50,10 @@ export default function Header() {
 
                   </ul>
                   <Link class="nav-link active" aria-current="page" to="/login">
-                    <label class="tw-cursor-pointer" onClick={Delete}>Sign Out</label>
+                    <label class="tw-cursor-pointer" onClick={() => {
+                      Delete();
+                      navigate("/login");
+                      window.location.reload();}}>Sign Out</label>
                   </Link>
                 </div>
 
