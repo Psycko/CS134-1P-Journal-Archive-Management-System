@@ -88,30 +88,25 @@ router.post("/register-stud", upload.single("Form"), async (req, res) => {
         const regList = await regStudentsSchema.find({lrn: lrn})
 
         if (lrnList.length !== 0){
-            await regStudentsSchema.create({
-                lrn: lrn,
-                password: password,
-                regDate: regDate
-            })
-            res.json({status: "Student Registered!"});
+			if (regList.length === 0){
+            	await regStudentsSchema.create({
+                	lrn: lrn,
+                	password: password,
+                	regDate: regDate
+            	})
+            	res.json({status: "Student Registered!"});
+        	}
+
+			else {
+            	res.json({status: "Student already registered!"});
+        	}
         }
 
         else {  
             return(res.json({status: "Student LRN does not exist!"}));
         }
 
-        if (regList.length === 0){
-            await regStudentsSchema.create({
-                lrn: lrn,
-                password: password,
-                regDate: regDate
-            })
-            res.json({status: "Student Registered!"});
-        }
-
-        else {
-            res.json({status: "Student already registered!"});
-        }
+        
 
     } catch (error) {
         res.json({status: "Error! Try Again!"});
