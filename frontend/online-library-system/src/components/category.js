@@ -7,11 +7,7 @@ export default function Category({search, category}) {
         if (search.length === 0)
         {
             fetch('http://localhost:8081/' + category, {
-            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
             method: "get",
-           // headers: new Headers({
-             //   "ngrok-skip-browser-warning": "89420",
-               // }),
             })  
             .then(res => res.json())
             .then(data => setData(data))
@@ -25,7 +21,6 @@ export default function Category({search, category}) {
                 Categ: category,
             }
             fetch('http://localhost:8081/searchbar-category', {
-            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -48,6 +43,7 @@ export default function Category({search, category}) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                
             },
             body: JSON.stringify({Title: title})
         });
@@ -55,36 +51,39 @@ export default function Category({search, category}) {
         window.open('http://localhost:8081/uploads/' + pdfdestination, "_blank", "noreferrer");
     }
 
-    const DownloadPDF = (pdfdestination, title) => {
+    // const DownloadPDF = (pdfdestination, title) => {
 
-        fetch('http://localhost:8081/downloadAdd', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({Title: title})
-        });
+    //     fetch('http://localhost:8081/downloadAdd', {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({Title: title})
+    //     });
 
-        axios.get('http://localhost:8081/uploads/' + pdfdestination, {
-            responseType: 'blob',
-        })
-        .then((obj) => {
-            const url = URL.createObjectURL(obj.data);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = pdfdestination;
-            a.style.display = 'none';
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            URL.revokeObjectURL(url);
-        })
-        .catch(err => console.error(err));
-    }
+    //     axios.get('http://localhost:8081/uploads/' + pdfdestination, {
+    //         responseType: 'blob',
+    //         headers: {
+    //             'Content-Type': 'application/pdf',
+    //         }
+    //     })
+    //     .then((obj) => {
+    //         const url = URL.createObjectURL(obj.data);
+    //         const a = document.createElement('a');
+    //         a.href = url;
+    //         a.download = pdfdestination;
+    //         a.style.display = 'none';
+    //         document.body.appendChild(a);
+    //         a.click();
+    //         a.remove();
+    //         URL.revokeObjectURL(url);
+    //     })
+    //     .catch(err => console.error(err));
+    // }
 
     return(
         <div class="tw-m-auto">
-            <table class="tw-table-fixed tw-text-center tw-w-full">
+            <table class=" tw-table-fixed tw-text-center tw-w-full">
                 <thead class="tw-text-center tw-bg-steel-blue">
                     <tr class="tw-text-text-blue">
                         <th class="sm:tw-hidden">No.</th>
@@ -101,7 +100,7 @@ export default function Category({search, category}) {
                     {data.map((d, i) => (
                     <tr key={i}>
                         <th class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{i+1}</th>
-                        <td class="tw-whitespace-nowrap tw-text-wrap tw-pl-4 tw-pr-3 tw-text-gray-900 sm:tw-pl-6 sm:tw-pt-4">
+                        <td class="tw-break-words tw-text-left tw-text-wrap tw-pl-4 tw-pr-3 tw-text-gray-900 sm:tw-pl-6 sm:tw-pt-4">
                             {d.title}
                             <dl class="md:tw-hidden">
                                 <dt class="tw-sr-only">Category</dt>
@@ -113,14 +112,11 @@ export default function Category({search, category}) {
                         <td class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{d.category}</td>
                         <td class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{d.year}</td>
                         <td class="tw-py-4  tw-pl-4 tw-pr-3 tw-justify-center">
-                            <button class="tw-bg-btn-blue tw-border-none tw-mr-2 tw-outline-none hover:tw-bg-dark-steel tw-duration-500 tw-rounded-md" 
+                            <button class=" tw-bg-btn-blue tw-border-none tw-mr-2 tw-outline-none hover:tw-bg-dark-steel tw-duration-500 tw-rounded-md" 
                                 onClick={()=> ShowPDF(d.destination, d.title)}>
                                 <i class="bi bi-eye-fill tw-text-xl tw-text-text-blue"></i>
                             </button>
-                            <button class="tw-bg-btn-blue tw-border-none tw-ml-2 tw-outline-none hover:tw-bg-dark-steel tw-duration-500 tw-rounded-md" 
-                                onClick={()=> DownloadPDF(d.destination, d.title)}>
-                                <i class="bi bi-download tw-text-xl tw-text-text-blue"></i>
-                            </button>
+                            
                         </td>
                     </tr>
 

@@ -5,7 +5,7 @@ export default function PDFMonitor() {
     const [pdfStats, setPdfStats] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8081/pdf-statistics')  
+        fetch('http://localhost:8081/pdf-statistics')
         .then(res => res.json())
         .then(pdfStats => setPdfStats(pdfStats))
         .catch(err => console.log(err));

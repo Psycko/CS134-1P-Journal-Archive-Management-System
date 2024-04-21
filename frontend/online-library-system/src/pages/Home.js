@@ -24,7 +24,7 @@ export default function Home() {
                         <p class="lead">For the students of Regional Science High School Region 1</p>
                     </div>
                 
-                    <div class="md:tw-w-[60%] sm:tw-w-full sm:tw-px-8 md:tw-bg-white tw-p-6 tw-rounded-lg md:tw-shadow-md tw-bg-opacity-[80%]">
+                    <div class="md:tw-w-[80%] sm:tw-w-full sm:tw-px-8 md:tw-bg-white tw-p-6 tw-rounded-lg md:tw-shadow-md tw-bg-opacity-[80%]">
                         <Searchbar search={handleSearch}/>
                         <Category search={searchVal} category={"all-categ"}/>
                     </div>

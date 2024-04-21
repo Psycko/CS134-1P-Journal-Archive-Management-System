@@ -73,6 +73,15 @@ export default function Admin() {
                                 Life Science
                                 </label>
                             </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="psCateg" value="Physical Science" required
+                            checked={category === 'Physical Science'}/>
+                            <label class="form-check-label" for="psCateg">
+                            Physical Science
+                            </label>
+                        </div>
+
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="gridRadios" id="ssCateg" value="Social Science" required
                             checked={category === 'Social Science'}/>

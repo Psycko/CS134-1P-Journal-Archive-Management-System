@@ -8,11 +8,7 @@ export default function AccountManagement() {
 
   useEffect(() => {
     fetch('http://localhost:8081/getCredentials', {
-        //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
         method: "get",
-        // headers: new Headers({
-            //   "ngrok-skip-browser-warning": "89420",
-            // }),
         })  
         .then(res => res.json())
         .then(data => { 
@@ -39,19 +35,17 @@ export default function AccountManagement() {
     e.preventDefault();
     console.log(id);
     fetch('http://localhost:8081/deleteCredentials', {
-            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({id: id})
-           // headers: new Headers({
-             //   "ngrok-skip-browser-warning": "89420",
-               // }),
-            })  
-            .then(res => res.json())
-            .then(data => alert(data.status))
-            .catch(err => console.log(err));
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({id: id})
+           
+    })  
+    .then(res => res.json())
+    .then(data => alert(data.status))
+    .catch(err => console.log(err));
 
     setDeleted(true);
   }
@@ -74,21 +68,18 @@ export default function AccountManagement() {
     }
     else {
       fetch('http://localhost:8081/editCredentials', {
-            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({data: d})
-           // headers: new Headers({
-             //   "ngrok-skip-browser-warning": "89420",
-               // }),
-            })
-            .then(res => res.json())
-            .then(data => alert(data.status))
-            .catch(err => console.log(err)); 
+            
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({data: d})
+      })
+      .then(res => res.json())
+      .then(data => alert(data.status))
+      .catch(err => console.log(err)); 
 
-            editButton(d);
+      editButton(d);
     }
 
   }

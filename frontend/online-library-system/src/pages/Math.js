@@ -20,7 +20,7 @@ export default function MathManuscript() {
             <div class="tw-flex tw-flex-col tw-items-center tw-w-full tw-gap-x-20">
                 <h1 class="display-4 tw-w-5/6 tw-pt-[150px] tw-pb-[80px] tw-text-center">Mathematics</h1>    
                         
-                <div class="md:tw-w-[60%] sm:tw-w-full sm:tw-px-8 md:tw-bg-white tw-p-6 tw-rounded-lg md:tw-shadow-md tw-bg-opacity-[80%]">
+                <div class="md:tw-w-[80%] sm:tw-w-full sm:tw-px-8 md:tw-bg-white tw-p-6 tw-rounded-lg md:tw-shadow-md tw-bg-opacity-[80%]">
                     <Searchbar search={handleSearch}/>
                     <Category search={searchVal} category={"math-categ"}/>        
                 </div> 

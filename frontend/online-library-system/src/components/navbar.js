@@ -37,6 +37,10 @@ export default function Header() {
                     </li>
 
                     <li>
+                      <Link class="dropdown-item" to="/category/physicalscience">Physical Science</Link>
+                    </li>
+
+                    <li>
                       <Link class="dropdown-item" to="/category/socialscience">Social Science</Link>
                     </li>
 

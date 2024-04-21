@@ -12,6 +12,7 @@ import AdminLogin from './pages/AdminLogin';
 import Dashboard from './pages/studMonitor';
 import PDFManagement from './pages/pdfManagement';
 import PDFMonitor from './pages/pdfMonitor';
+import PhysSci from './pages/Physci';
 import AccountManagement from './pages/accountManagement';
 import { AuthorizeAdmin, AuthorizeUser } from "./hooks/authorize";
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="category/robotics" element={AuthorizeUser() ? <Robotics/> : <StudLogin/>} />
           <Route path="category/lifescience" element={AuthorizeUser() ? <LifeSci/> : <StudLogin/>} />
           <Route path="category/socialscience" element={AuthorizeUser() ? <SocSci/> : <StudLogin/>} />
+          <Route path="category/physicalscience" element={AuthorizeUser() ? <PhysSci/> : <StudLogin/>} />
           <Route path="admin-login" element={<AdminLogin/>} />
           <Route path="admin-monitor" element={AuthorizeAdmin() ? <Dashboard/> : <AdminLogin/>} />
           <Route path="admin-access" element={AuthorizeAdmin() ? <Admin/> : <AdminLogin/>} />

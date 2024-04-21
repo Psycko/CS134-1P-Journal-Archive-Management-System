@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now()
-      cb(null, uniqueSuffix + req.body.Title +".pdf")
+      cb(null, uniqueSuffix + req.body.Title.replace(/[^\w]/gi, '_') +".pdf")
     }
   })
   
@@ -152,10 +152,10 @@ router.post('/downloadAdd', (req, res) => {
                 count = data.download;
                 data.download = count + 1;
                 data.save();
-                res.send({status: 200});
+                
             });
         
-
+            res.send({status: 200});
 
     } catch (error) {
 

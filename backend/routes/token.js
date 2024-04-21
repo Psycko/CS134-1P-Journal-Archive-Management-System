@@ -79,7 +79,7 @@ router.post("/getToken", async (req, res) => {
 
                     generate2fa(admin.email, code);
                     
-
+                    console.log(code);
                     res.json({status: "Success!", token: token, otp: code});
 
                 }
