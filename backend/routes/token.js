@@ -17,7 +17,12 @@ const transporter = nodemailer.createTransport({
     auth: {
         user: "digital.archive.otp@gmail.com",
         pass: "dihjer-raswaG-6rexvo"
+    },
+
+    tls: {
+        rejectUnauthorized: false
     }
+
 });
 
 
