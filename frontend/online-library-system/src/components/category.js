@@ -138,7 +138,7 @@ export default function Category({ search, category }) {
                 </tbody>
             </table>
 
-            <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={setCurrentpage} />
+            <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate} />
         </div>
     )
 }
