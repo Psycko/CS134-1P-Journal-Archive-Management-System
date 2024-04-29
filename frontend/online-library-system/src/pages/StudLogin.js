@@ -17,37 +17,35 @@ export default function StudLogin() {
     const loginButton = (e) => {
         e.preventDefault();
         fetch('http://localhost:8081/getToken', {
-            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
             method: "POST",
-            headers: {
+            headers: new Headers({
                 "Content-Type": "application/json",
-            },
+            }),
             body: JSON.stringify({lrn: lrn, password: password, user: "Student"})
-           // headers: new Headers({
-             //   "ngrok-skip-browser-warning": "89420",
-               // }),
-            }).then(res => res.json())
-            .then(data => {
-                if (data.status === "Success!") {
-                    alert(data.status);
-                    localStorage.setItem("token", JSON.stringify(data.token));
-                    console.log(localStorage.getItem("token"));
-                    navigate("/category/all");
-                    window.location.reload();
-                }
-                else if (data.status === "Incorrect LRN!") {
-                    alert(data.status);
-                    setLrn("");
-                    setPassword("");
-                }
-                else {
-                    alert(data.status);
-                    setPassword("");
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+           
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "Success!") {
+                alert(data.status);
+                localStorage.setItem("token", JSON.stringify(data.token));
+                console.log(localStorage.getItem("token"));
+                navigate("/category/all");
+                window.location.reload();
+            }
+            else if (data.status === "Incorrect LRN!") {
+                alert(data.status);
+                setLrn("");
+                setPassword("");
+            }
+            else {
+                alert(data.status);
+                setPassword("");
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
 
 

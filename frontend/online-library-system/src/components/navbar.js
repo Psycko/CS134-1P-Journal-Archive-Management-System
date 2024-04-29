@@ -11,8 +11,8 @@ export default function Header() {
     }
 
     return (
-        <div>
-          <nav class="navbar navbar-light tw-bg-steel-blue tw-sticky">
+        <div class="tw-top-0 tw-inset-x-0 tw-fixed tw-w-full tw-z-10">
+          <nav class="navbar navbar-light tw-bg-steel-blue">
             <div class="container-fluid">
               <a class="navbar-brand">
                 <img src={logo} width="40" alt="Logo" height="40" class="d-inline-block tw-cursor-pointer" onClick={navToHome}/>
@@ -37,6 +37,10 @@ export default function Header() {
                     </li>
 
                     <li>
+                      <Link class="dropdown-item" to="/category/physicalscience">Physical Science</Link>
+                    </li>
+
+                    <li>
                       <Link class="dropdown-item" to="/category/socialscience">Social Science</Link>
                     </li>
 
@@ -50,7 +54,10 @@ export default function Header() {
 
                   </ul>
                   <Link class="nav-link active" aria-current="page" to="/login">
-                    <label class="tw-cursor-pointer" onClick={Delete}>Sign Out</label>
+                    <label class="tw-cursor-pointer" onClick={() => {
+                      Delete();
+                      navigate("/login");
+                      window.location.reload();}}>Sign Out</label>
                   </Link>
                 </div>
 

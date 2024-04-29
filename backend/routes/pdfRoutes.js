@@ -47,6 +47,17 @@ router.get('/all-categ', (req, res)=> {
          res.send()
      } 
  })
+
+ router.get('/phys-sci-categ', (req, res)=> {
+    try {
+        PdfDetailsSchema.find({category: "Physical Science"}).then((data) => {
+            res.send(data);
+        });
+
+    } catch (error) {
+        res.send()
+    } 
+})
  
  router.get('/robotics-categ', (req, res)=> {
      try {
@@ -113,6 +124,10 @@ router.get('/all-categ', (req, res)=> {
     }
     else if (req.body.Categ === 'math-categ') {
         category = "Mathematics";
+    }
+
+    else if (req.body.Categ === 'phys-sci-categ') {
+        category = "Physical Science";
     }
 
 

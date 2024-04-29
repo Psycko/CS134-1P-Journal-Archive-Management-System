@@ -16,39 +16,36 @@ export default function AdminLogin() {
     const login = (e) => {
         e.preventDefault();
         fetch('http://localhost:8081/getToken', {
-            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({email: email, password: password, user: "Admin"})
-           // headers: new Headers({
-             //   "ngrok-skip-browser-warning": "89420",
-               // }),
-            }).then(res => res.json())
-            .then(data => {
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.status === "Success!") {
                 console.log(data);
-                if (data.status === "Success!") {
-                    console.log(data);
-                    alert(data.status);
-                    setOTP(data.otp);
-                    setToken(data.token);
-                    setModal(true);
-                    
-                }
-                else if (data.status === "Incorrect Email!") {
-                    alert(data.status);
-                    setEmail("");
-                    setPass("");
-                }
-                else {
-                    alert(data.status);
-                    setPass("");
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+                alert(data.status);
+                setOTP(data.otp);
+                setToken(data.token);
+                setModal(true);
+                
+            }
+            else if (data.status === "Incorrect Email!") {
+                alert(data.status);
+                setEmail("");
+                setPass("");
+            }
+            else {
+                alert(data.status);
+                setPass("");
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        })
     }
     return (
         <>

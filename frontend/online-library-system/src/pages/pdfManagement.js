@@ -12,11 +12,10 @@ export default function PDFManagement() {
     useEffect(()=>{
        
         fetch('http://localhost:8081/all-categ', {
-        //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
-        method: "get",
-        // headers: new Headers({
-            //   "ngrok-skip-browser-warning": "89420",
-            // }),
+            method: "get",
+            headers: {
+                "ngrok-skip-browser-warning": "89420",
+            },
         })  
         .then(res => res.json())
         .then(data => { 
@@ -31,15 +30,11 @@ export default function PDFManagement() {
 
     useEffect(() => {
         fetch('http://localhost:8081/pdf-statistics', {
-            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
             method: "get",
-            // headers: new Headers({
-                //   "ngrok-skip-browser-warning": "89420",
-                // }),
-            })  
-            .then(res => res.json())
-            .then(data => setPdfStats(data))
-            .catch(err => console.log(err));
+        })  
+        .then(res => res.json())
+        .then(data => setPdfStats(data))
+        .catch(err => console.log(err));
     }, [deleted, edited]);
 
 
@@ -64,23 +59,18 @@ export default function PDFManagement() {
     const deleteButton = (e, title) => {
         e.preventDefault();
         fetch('http://localhost:8081/delete-pdf', {
-            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({title: title})
-           // headers: new Headers({
-             //   "ngrok-skip-browser-warning": "89420",
-               // }),
-            })  
-            .then(res => res.json())
-            .then(data => alert(data.status))
-            .catch(err => console.log(err));
+        })  
+        .then(res => res.json())
+        .then(data => alert(data.status))
+        .catch(err => console.log(err));
 
 
         setDelete(true);
-
         
         };
         
@@ -101,25 +91,18 @@ export default function PDFManagement() {
             return;
         }
         fetch('http://localhost:8081/edit-pdf', {
-            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({data: d})
-           // headers: new Headers({
-             //   "ngrok-skip-browser-warning": "89420",
-               // }),
-            })
-            .then(res => res.json())
-            .then(data => alert(data.status))
-            .catch(err => console.log(err)); 
-            setEdit(true);
+        })
+        .then(res => res.json())
+        .then(data => alert(data.status))
+        .catch(err => console.log(err)); 
+        setEdit(true);
 
-            editButton();
-            
-
-
+        editButton();
             
     }
     
@@ -159,6 +142,7 @@ export default function PDFManagement() {
                                         <option value="Life Science">Life Science</option>
                                         <option value="Robotics">Robotics</option>
                                         <option value="Social Science">Social Science</option>
+                                        <option value="Physical Science">Physical Science</option>
                                     </select>
                                     : <>{d.category}</>}</td>
                                 <td>{d.state

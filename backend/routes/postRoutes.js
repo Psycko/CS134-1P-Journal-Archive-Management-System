@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
       const uniqueSuffix = Date.now()
-      cb(null, uniqueSuffix + req.body.Title +".pdf")
+      cb(null, uniqueSuffix + req.body.Title.replace(/[^\w]/gi, '_') +".pdf")
     }
   })
   
@@ -88,30 +88,25 @@ router.post("/register-stud", upload.single("Form"), async (req, res) => {
         const regList = await regStudentsSchema.find({lrn: lrn})
 
         if (lrnList.length !== 0){
-            await regStudentsSchema.create({
-                lrn: lrn,
-                password: password,
-                regDate: regDate
-            })
-            res.json({status: "Student Registered!"});
+			if (regList.length === 0){
+            	await regStudentsSchema.create({
+                	lrn: lrn,
+                	password: password,
+                	regDate: regDate
+            	})
+            	res.json({status: "Student Registered!"});
+        	}
+
+			else {
+            	res.json({status: "Student already registered!"});
+        	}
         }
 
         else {  
             return(res.json({status: "Student LRN does not exist!"}));
         }
 
-        if (regList.length === 0){
-            await regStudentsSchema.create({
-                lrn: lrn,
-                password: password,
-                regDate: regDate
-            })
-            res.json({status: "Student Registered!"});
-        }
-
-        else {
-            res.json({status: "Student already registered!"});
-        }
+        
 
     } catch (error) {
         res.json({status: "Error! Try Again!"});
@@ -157,10 +152,10 @@ router.post('/downloadAdd', (req, res) => {
                 count = data.download;
                 data.download = count + 1;
                 data.save();
-                res.send({status: 200});
+                
             });
         
-
+            res.send({status: 200});
 
     } catch (error) {
 

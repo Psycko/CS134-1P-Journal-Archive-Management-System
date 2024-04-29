@@ -17,7 +17,12 @@ const transporter = nodemailer.createTransport({
     auth: {
         user: "digital.archive.otp@gmail.com",
         pass: "dihjer-raswaG-6rexvo"
+    },
+
+    tls: {
+        rejectUnauthorized: false
     }
+
 });
 
 
@@ -37,9 +42,7 @@ router.post("/getToken", async (req, res) => {
                         expiresIn: '6h',
                     });
                     
-                //  const decoded = jwt.decode(token, "Secret");
-                    //console.log(decoded);
-                    console.log(token);
+
                     res.json({status: "Success!", token: token});
 
                 }
@@ -81,7 +84,7 @@ router.post("/getToken", async (req, res) => {
 
                     generate2fa(admin.email, code);
                     
-
+                    console.log(code);
                     res.json({status: "Success!", token: token, otp: code});
 
                 }
@@ -164,7 +167,6 @@ const generate2fa = (email, code) => {
         }
         else{
             console.log("Code Sent to " + email);
-            return code;
         }
     });
 

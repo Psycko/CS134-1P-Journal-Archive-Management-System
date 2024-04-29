@@ -11,16 +11,13 @@ const AuthorizeUser = () => {
         if (token)
         {
 
-        fetch('http://localhost:8081/authorizeUser', {
-            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({token: token})
-           // headers: new Headers({
-             //   "ngrok-skip-browser-warning": "89420",
-               // }),
+            fetch('http://localhost:8081/authorizeUser', {  
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+
+                body: JSON.stringify({token: token})
             })  
             .then(res => res.json())
             .then(data => {
@@ -44,16 +41,12 @@ const AuthorizeAdmin = () => {
 
       if (token) {
 
-      fetch('http://localhost:8081/authorizeAdmin', {
-            //fetch('https://bde9-136-158-65-250.ngrok-free.app/' + category, {
+        fetch('http://localhost:8081/authorizeAdmin', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({token: token})
-           // headers: new Headers({
-             //   "ngrok-skip-browser-warning": "89420",
-               // }),
             })  
             .then(res => res.json())
             .then(data => {
