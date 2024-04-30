@@ -17,7 +17,7 @@ export default function OTPModal({otp, token, visible, onClose }) {
     const verifyOTP = (e) => {
         if (userInput === otp) {
 
-            localStorage.setItem("token", JSON.stringify(token));
+            localStorage.setItem("admin", JSON.stringify(token));
             navigate("/admin-access");
             window.location.reload();
 

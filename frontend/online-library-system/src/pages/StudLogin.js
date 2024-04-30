@@ -28,8 +28,7 @@ export default function StudLogin() {
         .then(data => {
             if (data.status === "Success!") {
                 alert(data.status);
-                localStorage.setItem("token", JSON.stringify(data.token));
-                console.log(localStorage.getItem("token"));
+                localStorage.setItem("student", JSON.stringify(data.token));
                 navigate("/category/all");
                 window.location.reload();
             }
