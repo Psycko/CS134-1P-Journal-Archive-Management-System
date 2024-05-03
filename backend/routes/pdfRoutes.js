@@ -25,7 +25,65 @@ router.get('/all-categ', (req, res)=> {
     } 
     
  })
- 
+
+ router.get('/students/manuscripts/:category?/', (req, res) => {
+
+
+    if (JSON.stringify(req.query) != "{}") {
+        if (req.params.category === "all") {
+        
+            try {
+                PdfDetailsSchema.find({ title: {$regex: req.query.search, $options: 'i' }})
+                .then((data) => {
+                    
+                    res.status(200).send(data);
+                })
+    
+            } catch (error) {
+                res.status(400).send(error);
+            }
+        }
+        else{
+            try {
+                PdfDetailsSchema.find({ title: {$regex: req.query.search, $options: 'i' },
+            category: req.params.category})
+                .then((data) => {
+                    
+                    res.status(200).send(data);
+                })
+    
+            } catch (error) {
+                res.status(400).send(error);
+            }
+        }
+    }
+
+    else{
+        if (req.params.category != "all") {
+            try {
+                PdfDetailsSchema.find({category: req.params.category}).then((data) => {
+                    res.status(200).send(data);
+                });
+        
+            } catch (error) {
+                res.status(400).send();
+            } 
+        }
+        else
+        {
+            try {
+                PdfDetailsSchema.find({}).then((data) => {
+                    res.status(200).send(data);
+                });
+        
+            } catch (error) {
+                res.status(400).send();
+            } 
+        }
+    }
+ })
+
+
  router.get('/math-categ', (req, res)=> {
      try {
          PdfDetailsSchema.find({category: "Mathematics"}).then((data) => {
