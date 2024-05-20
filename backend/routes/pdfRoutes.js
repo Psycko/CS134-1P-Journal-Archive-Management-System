@@ -183,7 +183,16 @@ router.post('/edit-pdf', async (req, res) => {
     const title = req.body.data.title;
     const category = req.body.data.category;
     const year = req.body.data.year;
+    const currentYear = new Date().getFullYear();
     var isTrue = true;
+
+    if (!/^\d{4}$/.test(year) || year > currentYear || year === "") {
+        return res.status(400).json({ status: "Invalid year! Please provide a valid 4-digit year not greater than the current year." });
+    }
+
+    if (title.trim() === "") {
+        return res.status(400).json({ status: "Invalid title! Please provide a non-empty title." });
+    }
 
     const matchedTitles = await PdfDetailsSchema.find({title: title});
     if (matchedTitles.length > 0){

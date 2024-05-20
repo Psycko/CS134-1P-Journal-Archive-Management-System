@@ -39,15 +39,25 @@ router.post("/upload-pdf", upload.single("File"), async (req, res) => {
 
     const title = req.body.Title;
     const year = req.body.Year;
+    const currentYear = new Date().getFullYear();
     const category = req.body.Category;
     const fileDest = req.file.filename;
 
+    if (!fileDest || fileDest.mimetype !== 'application/pdf') {
+        return res.json({ status: "Invalid file format! Please upload a PDF file." });
+    }
+
+    if (!/^\d{4}$/.test(year) || year > currentYear || year === "") {
+        return res.json({ status: "Invalid year! Please provide a valid 4-digit year not greater than the current year." });
+    }
+    
     try{
         const matchedTitles = await PdfDetailsSchema.find({title: title})
 
         if (matchedTitles.length > 0){
             res.json({status: "There's an existing PDF with that title! Please try again."});
         }
+    
         else{
             try {
                 await PdfDetailsSchema.create({
@@ -177,6 +187,11 @@ router.get('/getCredentials', (req, res) => {
 
 router.post('/editCredentials', (req, res) => {
     const id = req.body.data._id;
+    const password = req.body.data.password;
+
+    if (password.trim() === "") {
+        return res.status(400).json({ status: "Invalid password! Please provide a non-empty password." });
+    }
 
     try {
         regStudentsSchema.findById(id)
