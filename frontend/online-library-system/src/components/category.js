@@ -9,6 +9,8 @@ export default function Category({ search, category }) {
     const [currentPage, setCurrentpage] = useState(1);
     const [postsPerPage, setPostsperpage] = useState(5); //Post per page
 
+    const [sortingType, setSortingType] = useState(1) //1: Ascending || -1: Descending
+
     useEffect(() => {
         if (search.length === 0) {
             fetch('http://localhost:8081/' + category, {
@@ -89,11 +91,16 @@ export default function Category({ search, category }) {
     //Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPost = data.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPost = data
+        .sort((a, b) => {
+            return sortingType * a.title.localeCompare(b.title)
+        })
+        .slice(indexOfFirstPost, indexOfLastPost);
 
     //Change page
+    const setPostCount = (postCount) => setPostsperpage(postCount);
     const paginate = (pageNumber) => setCurrentpage(pageNumber);
-
+    const sorting = (type) => setSortingType(type)
 
     return (
         <div class="tw-m-auto">
@@ -138,7 +145,7 @@ export default function Category({ search, category }) {
                 </tbody>
             </table>
 
-            <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate} />
+            <Pagination postsPerPage={postsPerPage} setPostsPerPage={setPostCount} totalPosts={data.length} paginate={paginate} sortType={sortingType} setSortType={sorting} />
         </div>
     )
 }

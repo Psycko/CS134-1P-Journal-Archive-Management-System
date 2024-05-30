@@ -9,7 +9,7 @@ export default function PDFMonitor() {
     const [currentPage, setCurrentpage] = useState(1);
     const [postsPerPage, setPostsperpage] = useState(5); //Post per page
 
-
+    const [sortingType, setSortingType] = useState(1) //1: Ascending || -1: Descending
 
     useEffect(() => {
         fetch('http://localhost:8081/pdf-statistics')
@@ -22,11 +22,16 @@ export default function PDFMonitor() {
     //Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPost = pdfStats.slice(indexOfFirstPost, indexOfLastPost);
+    const currentPost = pdfStats
+        .sort((a, b) => {
+            return sortingType * a.title.localeCompare(b.title)
+        })
+        .slice(indexOfFirstPost, indexOfLastPost);
 
     //Change page
     const paginate = (pageNumber) => setCurrentpage(pageNumber);
-
+    const setPostCount = (postCount) => setPostsperpage(postCount);
+    const sorting = (type) => setSortingType(type)
     return (
         <>
             <div class="tw-flex tw-bg-gray-50 tw-min-h-dvh">
@@ -58,10 +63,7 @@ export default function PDFMonitor() {
                         </tbody>
                     </table>
 
-                    <Pagination postsPerPage={postsPerPage} totalPosts={pdfStats.length} paginate={setCurrentpage} />
-
-
-
+                    <Pagination postsPerPage={postsPerPage} setPostsPerPage={setPostCount} totalPosts={pdfStats.length} paginate={paginate} sortType={sortingType} setSortType={sorting} />
                 </div>
             </div>
         </>
