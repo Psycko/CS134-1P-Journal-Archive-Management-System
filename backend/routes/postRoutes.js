@@ -29,7 +29,6 @@ const storage = multer.diskStorage({
   
   const upload = multer({ storage: storage })
 
-
 //API 
 router.get('/', (req, res)=> {
     return res.json("backend");
@@ -38,6 +37,7 @@ router.get('/', (req, res)=> {
 router.post("/upload-pdf", upload.single("File"), async (req, res) => {
 
     const title = req.body.Title;
+    const author = req.body.Author;
     const year = req.body.Year;
     const category = req.body.Category;
     const fileDest = req.file.filename;
@@ -52,6 +52,7 @@ router.post("/upload-pdf", upload.single("File"), async (req, res) => {
             try {
                 await PdfDetailsSchema.create({
                     title: title,
+                    author: author,
                     year: year,
                     category: category,
                     destination: fileDest

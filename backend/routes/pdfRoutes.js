@@ -130,9 +130,6 @@ router.get('/all-categ', (req, res)=> {
         category = "Physical Science";
     }
 
-
-
-
     if (req.body.Categ === 'all-categ') {
         
         try {
@@ -181,6 +178,7 @@ router.post('/delete-pdf', (req, res) => {
 router.post('/edit-pdf', async (req, res) => {
     const id = req.body.data._id;
     const title = req.body.data.title;
+    const author = req.body.data.author;
     const category = req.body.data.category;
     const year = req.body.data.year;
     var isTrue = true;
@@ -221,6 +219,7 @@ router.post('/edit-pdf', async (req, res) => {
                     }
 
                     data.title = title;
+                    data.author = author;
                     data.category = category;
                     data.year = year;
                     data.save();

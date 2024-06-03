@@ -103,16 +103,17 @@ export default function Category({ search, category }) {
     const sorting = (type) => setSortingType(type)
 
     return (
-        <div class="tw-m-auto">
+        <div class="">
             <table class=" tw-table-fixed tw-text-center tw-w-full">
                 <thead class="tw-text-center tw-bg-steel-blue">
                     <tr class="tw-text-text-blue">
-                        <th class="sm:tw-hidden">No.</th>
+                        {/* <th class="sm:tw-hidden">No.</th> */}
                         <th class="sm:tw-hidden tw-py-4">Title</th>
+                        <th class="sm:tw-hidden tw-py-4">Author</th>
                         <th class="md:tw-hidden tw-py-4">Journal</th>
                         <th class="sm:tw-hidden">Category</th>
                         <th class="sm:tw-hidden">Year</th>
-                        <th>Actions</th>
+                        {/* <th>Actions</th> */}
                         {/* <th scope="col"></th> */}
                     </tr>
                 </thead>
@@ -120,7 +121,7 @@ export default function Category({ search, category }) {
                 <tbody class="tw-divide-y tw-divide-gray-300 tw-bg-gray-100">
                     {currentPost.map((d, i) => (
                         <tr key={i}>
-                            <th class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{indexOfFirstPost + 1 + i}</th>
+                            {/* <th class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{indexOfFirstPost + 1 + i}</th> */}
                             <td class="tw-break-words tw-text-left tw-text-wrap tw-pl-4 tw-pr-3 tw-text-gray-900 sm:tw-pl-6 sm:tw-pt-4">
                                 {d.title}
                                 <dl class="md:tw-hidden">
@@ -130,22 +131,25 @@ export default function Category({ search, category }) {
                                     <dd>{d.year}</dd>
                                 </dl>
                             </td>
+                            <td class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{d.author}</td>
                             <td class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{d.category}</td>
                             <td class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{d.year}</td>
-                            <td class="tw-py-4  tw-pl-4 tw-pr-3 tw-justify-center">
+                            {/* <td class="tw-py-4  tw-pl-4 tw-pr-3 tw-justify-center">
                                 <button class=" tw-bg-btn-blue tw-border-none tw-mr-2 tw-outline-none hover:tw-bg-dark-steel tw-duration-500 tw-rounded-md"
                                     onClick={() => ShowPDF(d.destination, d.title)}>
                                     <i class="bi bi-eye-fill tw-text-xl tw-text-text-blue"></i>
                                 </button>
-
-                            </td>
+                            </td> */}
                         </tr>
-
                     ))}
                 </tbody>
             </table>
 
             <Pagination postsPerPage={postsPerPage} setPostsPerPage={setPostCount} totalPosts={data.length} paginate={paginate} sortType={sortingType} setSortType={sorting} />
+                
+            <div class="tw-flex tw-justify-end tw-pt-5">
+                <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate} />
+            </div>
         </div>
     )
 }

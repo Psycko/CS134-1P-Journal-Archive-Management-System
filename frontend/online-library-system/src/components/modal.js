@@ -68,7 +68,7 @@ export default function OTPModal({otp, token, visible, onClose }) {
                 <p class="tw-m-2 tw-text-center">One-Time Password is sent, please check your Email.</p>
 
                 <div class="tw-text-center tw-m-9">
-                    <button class="tw-bg-btn-landing tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-btn-dark tw-duration-500 tw-text-gray-50"
+                    <button class="tw-bg-dark-blue tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-dark-steel tw-duration-500 tw-text-gray-50"
                     onClick={(e) => {verifyOTP(e)}}>
                         Submit
                     </button>

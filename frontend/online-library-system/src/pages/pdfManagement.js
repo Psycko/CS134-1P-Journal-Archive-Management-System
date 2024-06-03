@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import Sidebar from "../components/sidebar"
-
+import Searchbar from "../components/searchbar"
 
 export default function PDFManagement() {
     const [primaryData, setPrimary] = useState([]);
@@ -37,8 +37,6 @@ export default function PDFManagement() {
         .catch(err => console.log(err));
     }, [deleted, edited]);
 
-
-    
     const editButton = () => {
        const editData = data.map((d) =>
        ( {...d }) )
@@ -68,7 +66,6 @@ export default function PDFManagement() {
         .then(res => res.json())
         .then(data => alert(data.status))
         .catch(err => console.log(err));
-
 
         setDelete(true);
         
@@ -108,24 +105,28 @@ export default function PDFManagement() {
     
     return (
         <>
-        <div class="tw-flex tw-bg-gray-50 tw-min-h-dvh">
+        <div class="tw-flex tw-bg-gray-50">
             <div>
                 <Sidebar/>
             </div>
 
-            <div class="tw-flex tw-w-full md:tw-mx-20 md:tw-mt-[100px] sm:tw-m-5 tw-align-top">
+            <div class="tw-flex md:tw-mx-20 md:tw-mt-[100px] sm:tw-m-5 tw-align-top tw-flex-col">
+                <div>
+                    <Searchbar/>
+                </div>
+                
                 <div class="category table-striped table-responsive md:tw-w-full sm:tw-w-full tw-flex tw-items-center tw-flex-col">
                     <table class="table table-striped tw-text-center">
                         <thead class="tw-text-center">
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Title</th>
+                                <th scope="col">Author</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Year Published</th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
                             </tr>
-                            
                         </thead>
 
                         <tbody>
@@ -136,6 +137,9 @@ export default function PDFManagement() {
                                 <td>{d.state
                                     ? <input value={d.title} name="title" onChange={(e) => {editValue(e, i)}}></input>
                                     : <>{d.title}</>}</td>
+                                <td>{d.state
+                                    ? <input value={d.author} name="author" onChange={(e) => {editValue(e, i)}}></input>
+                                    : <>{d.author}</>}</td>
                                 <td>{d.state
                                     ? <select name="category" value={d.category} onChange={(e)=> {editValue(e, i)}}>
                                         <option value="Mathematics">Mathematics</option>
@@ -149,15 +153,15 @@ export default function PDFManagement() {
                                     ? <input value={d.year} name="year" onChange={(e) => {editValue(e, i)}}></input>
                                     : <>{d.year}</>}</td>
                                 <td class="tw-w-[30px]">{ d.state
-                                    ? <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
+                                    ? <button class="tw-bg-dark-blue tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-light-steel tw-duration-100" 
                                         onClick={(e) => {d.state = false; doneButton(e, d)}}>
                                             <label class="tw-cursor-pointer tw-text-gray-100">Done</label></button>
-                                    : <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
+                                    : <button class="tw-bg-dark-blue tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-light-steel tw-duration-100" 
                                         onClick={() => {d.state = true;editButton(d)}}>
                                             <label class="tw-cursor-pointer tw-text-gray-100">Edit</label></button>
                                 }</td>
                                 <td class="tw-w-[30px]">
-                                    <button class="tw-bg-green tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-dark-green tw-duration-500" 
+                                    <button class="tw-bg-dark-blue tw-rounded-md tw-h-[40px] tw-px-4 tw-w-full tw-border-none tw-outline-none hover:tw-bg-light-steel tw-duration-100" 
                                         onClick={(e) => deleteButton(e, d.title)}>
                                             <label class="tw-cursor-pointer tw-text-gray-100">Delete</label></button>
                                 </td>
@@ -166,7 +170,6 @@ export default function PDFManagement() {
                             ))}
                         </tbody>
                     </table>
-
                 </div>
             </div>
         </div>

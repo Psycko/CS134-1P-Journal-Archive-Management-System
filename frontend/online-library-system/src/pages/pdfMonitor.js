@@ -18,7 +18,6 @@ export default function PDFMonitor() {
             .catch(err => console.log(err));
     }, []);
 
-
     //Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -64,6 +63,7 @@ export default function PDFMonitor() {
                     </table>
 
                     <Pagination postsPerPage={postsPerPage} setPostsPerPage={setPostCount} totalPosts={pdfStats.length} paginate={paginate} sortType={sortingType} setSortType={sorting} />
+                    <Pagination postsPerPage={postsPerPage} totalPosts={pdfStats.length} paginate={setCurrentpage} />
                 </div>
             </div>
         </>

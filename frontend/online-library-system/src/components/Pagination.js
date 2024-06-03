@@ -38,4 +38,16 @@ const Pagination = ({ postsPerPage, setPostsPerPage, totalPosts, paginate, sortT
     )
 }
 
+{/* <nav>
+            <ul class="tw-flex">
+                {pageNumbers.map(number => (
+                    <li key={number} class="tw-flex tw-flex-row">
+                        <a onClick={() => paginate(number)} href="##" class="">
+                            {number}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav> */}
+
 export default Pagination
