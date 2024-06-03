@@ -144,11 +144,9 @@ export default function Category({ search, category }) {
                     ))}
                 </tbody>
             </table>
-
-            <Pagination postsPerPage={postsPerPage} setPostsPerPage={setPostCount} totalPosts={data.length} paginate={paginate} sortType={sortingType} setSortType={sorting} />
-                
+            
             <div class="tw-flex tw-justify-end tw-pt-5">
-                <Pagination postsPerPage={postsPerPage} totalPosts={data.length} paginate={paginate} />
+                <Pagination postsPerPage={postsPerPage} setPostsPerPage={setPostCount} totalPosts={data.length} paginate={paginate} sortType={sortingType} setSortType={sorting} />
             </div>
         </div>
     )

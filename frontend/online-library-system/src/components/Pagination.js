@@ -24,8 +24,12 @@ const Pagination = ({ postsPerPage, setPostsPerPage, totalPosts, paginate, sortT
     return (
         <nav>
             <ul class="pagination">
-                <button onClick={() => setSortType(sortType * -1)}>Sorting</button>
-                <input type='number' onChange={change} />
+                {/* <button onClick={() => setSortType(sortType * -1)}>Sorting</button> */}
+                <select type='number' onChange={change}>
+                    <option value='5'>5</option>
+                    <option value='10'>10</option>
+                    <option value='15'>15</option>
+                </select>
                 {pageNumbers.map(number => (
                     <li key={number} class="page-item">
                         <a onClick={() => paginate(number)} href="##" class='page-link'>
