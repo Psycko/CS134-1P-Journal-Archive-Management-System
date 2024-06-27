@@ -1,18 +1,21 @@
 import React from 'react'
-import { useState } from "react"
+import { useState, useMemo, useCallback } from "react"
 
 const Pagination = ({ postsPerPage, setPostsPerPage, totalPosts, paginate, sortType, setSortType }) => {
     const [postPerPage, setPostPerPage] = useState(postsPerPage)
 
     const pageNumbers = [];
 
-    const change = (event) => {
+    const change = useCallback(event => {
         if (event.target.value === "") {
 
-        } else {
+        } 
+
+        else {
             setPostsPerPage(event.target.value)
         }
-    }
+    })
+
     const posts = (event) => {
         setPostsPerPage = event.target.value
     }
@@ -32,7 +35,7 @@ const Pagination = ({ postsPerPage, setPostsPerPage, totalPosts, paginate, sortT
                 </select>
                 {pageNumbers.map(number => (
                     <li key={number} class="page-item">
-                        <a onClick={() => paginate(number)} href="##" class='page-link'>
+                        <a onClick={(event) => paginate(number)} href="##" class='page-link'>
                             {number}
                         </a>
                     </li>
