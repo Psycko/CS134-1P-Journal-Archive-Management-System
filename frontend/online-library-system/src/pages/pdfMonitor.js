@@ -63,7 +63,6 @@ export default function PDFMonitor() {
                     </table>
 
                     <Pagination postsPerPage={postsPerPage} setPostsPerPage={setPostCount} totalPosts={pdfStats.length} paginate={paginate} sortType={sortingType} setSortType={sorting} />
-                    <Pagination postsPerPage={postsPerPage} totalPosts={pdfStats.length} paginate={setCurrentpage} />
                 </div>
             </div>
         </>

@@ -2,8 +2,6 @@ import { useState } from 'react';
 import logo from '../img/RSHS_1_Logo.png';
 import OTPModal from '../components/modal';
 
-
-
 export default function AdminLogin() {
 
     const [showModal, setModal] = useState(false)

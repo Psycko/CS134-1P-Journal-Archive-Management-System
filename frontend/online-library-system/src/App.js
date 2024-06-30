@@ -37,7 +37,7 @@ function App() {
           <Route path="admin-access" element={AuthorizeAdmin() ? <Admin/> : <AdminLogin/>} />
           <Route path="admin-pdf-management" element={AuthorizeAdmin() ? <PDFManagement/> : <AdminLogin/>} />
           <Route path="admin-manage-categ" element={AuthorizeAdmin() ? <ManageCategory/> : <AdminLogin/>} />
-          <Route path="admin-pdf-monitor" element={AuthorizeAdmin() ? <PDFMonitor/> : <AdminLogin/>} />
+          <Route path="admin-dashboard" element={AuthorizeAdmin() ? <PDFMonitor/> : <AdminLogin/>} />
           <Route path="admin-student-management" element={AuthorizeAdmin() ? <AccountManagement/> : <AdminLogin/>} />
           <Route path="*" element={<Error404/>} />
           

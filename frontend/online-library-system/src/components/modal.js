@@ -78,10 +78,6 @@
 //     )
 // }
 
-
-
-
-
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -107,7 +103,7 @@ export default function OTPModal({ otp, token, visible, onClose }) {
     const verifyOTP = () => {
         if (userInput === otp) {
             localStorage.setItem("token", JSON.stringify(token));
-            navigate("/admin-access");
+            navigate("/admin-dashboard");
             window.location.reload();
         } else {
             alert("Wrong OTP. Please try again!");

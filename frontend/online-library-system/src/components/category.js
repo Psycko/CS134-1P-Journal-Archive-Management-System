@@ -134,12 +134,12 @@ export default function Category({ search, category }) {
                             <td class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{d.author}</td>
                             <td class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{d.category}</td>
                             <td class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{d.year}</td>
-                            {/* <td class="tw-py-4  tw-pl-4 tw-pr-3 tw-justify-center">
+                            <td class="tw-py-4  tw-pl-4 tw-pr-3 tw-justify-center">
                                 <button class=" tw-bg-btn-blue tw-border-none tw-mr-2 tw-outline-none hover:tw-bg-dark-steel tw-duration-500 tw-rounded-md"
                                     onClick={() => ShowPDF(d.destination, d.title)}>
                                     <i class="bi bi-eye-fill tw-text-xl tw-text-text-blue"></i>
                                 </button>
-                            </td> */}
+                            </td>
                         </tr>
                     ))}
                 </tbody>
