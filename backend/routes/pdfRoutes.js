@@ -14,6 +14,9 @@ const studInfoSchema = mongoose.model("studInfo");
 require("../Schema/pdfStatistics");
 const pdfStatistics = mongoose.model("pdfstat");
 
+require("../Schema/auditLogs");
+const auditSchema = mongoose.model("auditLog");
+
 router.get('/all-categ', (req, res)=> {
     try {
          PdfDetailsSchema.find({}).then((data) => {
@@ -102,13 +105,13 @@ router.get('/all-categ', (req, res)=> {
  })
 
  router.get('/pdf-statistics', (req, res) => {
-    try {
-        pdfStatistics.find({}).then((data) => {
-            res.send(data);
-        });
-    } catch (error) {
-        res.send(error);
-    }
+    // try {
+    //     pdfStatistics.find({}).then((data) => {
+    //         res.send(data);
+    //     });
+    // } catch (error) {
+    //     res.send(error);
+    // }
  })
 
  router.post('/searchbar-category', (req, res) => {
@@ -166,14 +169,15 @@ router.post('/delete-pdf', (req, res) => {
     .then(result => {
         pdfStatistics.deleteOne({title: req.body.title})
         .then(result => {
-            auditSchema.create({
-                action: action,
-                date: date})
             res.send({status: req.body.title+" Deleted"});
         })
         .catch(error => {
             res.send(error);
         })
+        
+        auditSchema.create({
+            action: action,
+            date: date})
     })
     .catch(error => {
         res.send(error);
@@ -187,7 +191,7 @@ router.post('/edit-pdf', async (req, res) => {
     const category = req.body.data.category;
     const year = req.body.data.year;
     var isTrue = true;
-    const action = "Edit Journal Information" 
+    const action = "Delete PDF" 
     const date = Date.now()
 
     const matchedTitles = await PdfDetailsSchema.find({title: title});
@@ -234,6 +238,7 @@ router.post('/edit-pdf', async (req, res) => {
                     auditSchema.create({
                         action: action,
                         date: date})
+
                     res.send({status: "Journal Successfully Edited!"});
                 });
 

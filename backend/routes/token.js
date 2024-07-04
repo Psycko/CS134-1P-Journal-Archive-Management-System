@@ -27,7 +27,6 @@ const transporter = nodemailer.createTransport({
 
 });
 
-
 router.post("/getToken", async (req, res) => {
     console.log()
     if(req.body.user === "Student")
@@ -71,11 +70,13 @@ router.post("/getToken", async (req, res) => {
             const admin = await adminSchema.findOne({email});
         
             if(admin) {
+                
+
                 if (password === admin.password) {
                     const token = jwt.sign({_id: admin._id}, "Secret", {
                         expiresIn: '3h',
                     });
-
+                    
                     var code = "";
 
                     for (let i = 0; i < 6; i++){
@@ -86,7 +87,8 @@ router.post("/getToken", async (req, res) => {
                     
                     await auditSchema.create({
                         action: action,
-                        date: date})
+                        date: date
+                    })
                     console.log(code);
                     res.json({status: "Success!", token: token, otp: code});
 
@@ -137,7 +139,6 @@ router.post("/authorizeAdmin", async(req, res) => {
     try {
         const admin = await adminSchema.findById(id)
         if (admin) {
-
             res.json({status: "Admin"});
         }
         else{
@@ -148,6 +149,8 @@ router.post("/authorizeAdmin", async(req, res) => {
     }
 
 })
+
+
 
 const generate2fa = (email, code) => {
 

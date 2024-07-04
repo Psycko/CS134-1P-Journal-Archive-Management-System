@@ -67,7 +67,8 @@ router.post("/upload-pdf", upload.single("File"), async (req, res) => {
                 })
                 await auditSchema.create({
                     action: action,
-                    date: date})
+                    date: date
+                })
                 res.json({status: "Upload Success!"});
             } catch (error) {
                 res.json({status: "Error! Try Again!"});
@@ -115,6 +116,8 @@ router.post("/register-stud", upload.single("Form"), async (req, res) => {
             return(res.json({status: "Student LRN does not exist!"}));
         }
 
+        
+
     } catch (error) {
         res.json({status: "Error! Try Again!"});
     }
@@ -141,7 +144,7 @@ router.post('/viewAdd', (req, res) => {
                 data.save();
                 res.send({status: 200});
             });
-
+        
     } catch (error) {
 
         res.send(error);
@@ -167,7 +170,6 @@ router.post('/downloadAdd', (req, res) => {
         res.send(error);
     }
 })
-
 
 router.get('/getCredentials', (req, res) => {
     try {
