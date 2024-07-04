@@ -15,6 +15,9 @@ const studInfoSchema = mongoose.model("studInfo")
 require("../Schema/pdfStatistics");
 const pdfStatistics = mongoose.model("pdfstat");
 
+require("../Schema/auditLogs");
+const auditSchema = mongoose.model("auditLog")
+
 //MULTER FOR FILE UPLOAD
 const multer  = require('multer');
 const storage = multer.diskStorage({
@@ -41,6 +44,8 @@ router.post("/upload-pdf", upload.single("File"), async (req, res) => {
     const year = req.body.Year;
     const category = req.body.Category;
     const fileDest = req.file.filename;
+    const action = "Upload PDF" 
+    const date = Date.now()
 
     try{
         const matchedTitles = await PdfDetailsSchema.find({title: title})
@@ -60,6 +65,9 @@ router.post("/upload-pdf", upload.single("File"), async (req, res) => {
                 await pdfStatistics.create({
                     title: title
                 })
+                await auditSchema.create({
+                    action: action,
+                    date: date})
                 res.json({status: "Upload Success!"});
             } catch (error) {
                 res.json({status: "Error! Try Again!"});
@@ -107,8 +115,6 @@ router.post("/register-stud", upload.single("Form"), async (req, res) => {
             return(res.json({status: "Student LRN does not exist!"}));
         }
 
-        
-
     } catch (error) {
         res.json({status: "Error! Try Again!"});
     }
@@ -135,8 +141,6 @@ router.post('/viewAdd', (req, res) => {
                 data.save();
                 res.send({status: 200});
             });
-        
-
 
     } catch (error) {
 

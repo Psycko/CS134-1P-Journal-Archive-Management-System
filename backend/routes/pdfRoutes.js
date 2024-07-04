@@ -159,16 +159,21 @@ router.get('/all-categ', (req, res)=> {
 })
 
 router.post('/delete-pdf', (req, res) => {
+    const action = "Delete PDF" 
+    const date = Date.now()
+
     PdfDetailsSchema.deleteOne({title: req.body.title})
     .then(result => {
         pdfStatistics.deleteOne({title: req.body.title})
         .then(result => {
+            auditSchema.create({
+                action: action,
+                date: date})
             res.send({status: req.body.title+" Deleted"});
         })
         .catch(error => {
             res.send(error);
         })
-        
     })
     .catch(error => {
         res.send(error);
@@ -182,6 +187,8 @@ router.post('/edit-pdf', async (req, res) => {
     const category = req.body.data.category;
     const year = req.body.data.year;
     var isTrue = true;
+    const action = "Edit Journal Information" 
+    const date = Date.now()
 
     const matchedTitles = await PdfDetailsSchema.find({title: title});
     if (matchedTitles.length > 0){
@@ -223,6 +230,10 @@ router.post('/edit-pdf', async (req, res) => {
                     data.category = category;
                     data.year = year;
                     data.save();
+
+                    auditSchema.create({
+                        action: action,
+                        date: date})
                     res.send({status: "Journal Successfully Edited!"});
                 });
 
