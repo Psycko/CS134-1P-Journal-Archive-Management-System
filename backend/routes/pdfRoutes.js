@@ -191,7 +191,7 @@ router.post('/edit-pdf', async (req, res) => {
     const category = req.body.data.category;
     const year = req.body.data.year;
     var isTrue = true;
-    const action = "Delete PDF" 
+    const action = "Edit PDF Detail/s" 
     const date = Date.now()
 
     const matchedTitles = await PdfDetailsSchema.find({title: title});
