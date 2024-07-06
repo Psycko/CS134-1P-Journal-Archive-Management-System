@@ -241,4 +241,31 @@ router.post('/deleteCredentials', async (req, res) => {
         res.send({status: {error}});
     }
 })
+
+router.post('/upload-students', async (req, res) => {
+    const students = req.body;
+
+    try {
+        let newStudents = [];
+        for (let student of students) {
+            const existingStudent = await studInfoSchema.findOne({
+                lrn: student.lrn
+            });
+
+            if (!existingStudent) {
+                newStudents.push(student);
+            }
+        }
+
+        if (newStudents.length > 0) {
+            await studInfoSchema.insertMany(newStudents);
+            res.json({ status: 'Students data uploaded successfully', inserted: newStudents.length });
+        } else {
+            res.json({ status: 'No new students to insert' });
+        }
+    } catch (error) {
+        res.json({ status: 'Error uploading data', error });
+    }
+});
+
 module.exports = router;
