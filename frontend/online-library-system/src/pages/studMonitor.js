@@ -25,7 +25,7 @@ export default function Monitor() {
     const handleFileUpload = (event) => {
         const file = event.target.files[0];
         Papa.parse(file, {
-            header: true, // Treat the first row as header
+            header: true,
             complete: (results) => {
                 const data = results.data.map(row => ({
                     lrn: row["LRN"],
@@ -35,9 +35,6 @@ export default function Monitor() {
                     birthday: row["Birthday"],
                 }));
 
-                setStud(data);
-
-                // Send data to backend
                 fetch('http://localhost:8081/upload-students', {
                     method: 'POST',
                     headers: {
@@ -47,10 +44,10 @@ export default function Monitor() {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log('Success:', data);
+                    alert(data.status);
                 })
                 .catch((error) => {
-                    console.error('Error:', error);
+                    alert('Error uploading data');
                 });
             },
         });

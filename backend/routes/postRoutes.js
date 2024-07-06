@@ -259,12 +259,12 @@ router.post('/upload-students', async (req, res) => {
 
         if (newStudents.length > 0) {
             await studInfoSchema.insertMany(newStudents);
-            res.json({status: "Students data uploaded successfully", inserted: newStudents.length});
+            res.json({ status: 'Students data uploaded successfully', inserted: newStudents.length });
         } else {
-            res.json({status: "No new students to insert"});
+            res.json({ status: 'No new students to insert' });
         }
     } catch (error) {
-        res.json({status: "Error uploading data", error});
+        res.json({ status: 'Error uploading data', error });
     }
 });
 
