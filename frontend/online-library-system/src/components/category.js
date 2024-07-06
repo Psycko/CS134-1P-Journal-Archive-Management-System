@@ -44,7 +44,7 @@ export default function Category({ search, category }) {
 
     }, [search])
 
-    const ShowPDF = (pdfdestination, title) => {
+    const updStat = (pdfdestination, title) => {
 
         console.log(pdfdestination);
         fetch('http://localhost:8081/viewAdd', {
@@ -56,7 +56,7 @@ export default function Category({ search, category }) {
             body: JSON.stringify({ Title: title })
         });
 
-        window.open('http://localhost:8081/uploads/' + pdfdestination);
+        // window.open('http://localhost:8081/uploads/' + pdfdestination);
     }
 
     // const DownloadPDF = (pdfdestination, title) => {
@@ -126,7 +126,7 @@ export default function Category({ search, category }) {
                             {/* <th class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{indexOfFirstPost + 1 + i}</th> */}
                             <td class="tw-break-words tw-text-left tw-text-wrap tw-pl-4 tw-pr-3 tw-text-gray-900 sm:tw-pl-6 sm:tw-pt-4">
                                 {/* {d.title} */}
-                                <Link to={`/pdfView/${d.destination}`}>
+                                <Link to={`/pdfView/${d.destination}`} onClick={updStat}>
                                     {d.title}
                                 </Link>
                                 <dl class="md:tw-hidden">
@@ -139,12 +139,12 @@ export default function Category({ search, category }) {
                             <td class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{d.author}</td>
                             <td class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{d.category}</td>
                             <td class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{d.year}</td>
-                            <td class="tw-py-4  tw-pl-4 tw-pr-3 tw-justify-center">
+                            {/* <td class="tw-py-4  tw-pl-4 tw-pr-3 tw-justify-center">
                                 <button class=" tw-bg-btn-blue tw-border-none tw-mr-2 tw-outline-none hover:tw-bg-dark-steel tw-duration-500 tw-rounded-md"
-                                    onClick={() => ShowPDF(d.destination, d.title)}>
+                                    onClick={() => updStat(d.destination, d.title)}>
                                     <i class="bi bi-eye-fill tw-text-xl tw-text-text-blue"></i>
                                 </button>
-                            </td>
+                            </td> */}
                         </tr>
                     ))}
                 </tbody>

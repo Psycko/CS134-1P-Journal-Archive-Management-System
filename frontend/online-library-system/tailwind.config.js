@@ -24,7 +24,7 @@ module.exports = {
         'dark-blue': '#002366',
         'steel-blue': '#88acd4',
         'hover-blue': '#668AB9',
-        'green': '#59B793',
+        'green': '#20B02E',
         'dark-green': '#5DA98E',
         'light-steel': '#063081',
         'btn-blue': '#8ea9c1',
