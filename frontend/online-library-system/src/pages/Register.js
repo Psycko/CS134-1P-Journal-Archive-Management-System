@@ -73,8 +73,8 @@ export default function Register() {
                     </div>
                     <div class="elements tw-p-2.5 tw-w-full">
                         <div class="form-group">
-                                <label for="passwordInput">Confirm Password</label>
-                                <input type="password" class="form-control focus:tw-placeholder-transparent" id="passwordInput" placeholder="Password" required onChange={(e) => checkPassword(e.target.value)} value={confirmPass}/>
+                                <label for="confirmpassInput">Confirm Password</label>
+                                <input type="password" class="form-control focus:tw-placeholder-transparent" id="confirmpassInput" placeholder="Password" required onChange={(e) => checkPassword(e.target.value)} value={confirmPass}/>
                             </div>
                     </div>
                     <div class="elements tw-p-2.5 tw-w-full tw-font-roboto">
