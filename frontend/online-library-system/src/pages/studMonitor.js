@@ -24,33 +24,41 @@ export default function Monitor() {
 
     const handleFileUpload = (event) => {
         const file = event.target.files[0];
-        Papa.parse(file, {
-            header: true,
-            complete: (results) => {
-                const data = results.data.map(row => ({
-                    lrn: row["LRN"],
-                    lastname: row["Last Name"],
-                    firstname: row["First Name"],
-                    middlename: row["Middle Name"],
-                    birthday: row["Birthday"],
-                }));
 
-                fetch('http://localhost:8081/upload-students', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    alert(data.status);
-                })
-                .catch((error) => {
-                    alert('Error uploading data');
-                });
-            },
-        });
+        // Show a confirmation prompt
+        const confirmUpload = window.confirm(`Are you sure you want to upload the file: ${file.name}?`);
+
+        if (confirmUpload) {
+            Papa.parse(file, {
+                header: true,
+                complete: (results) => {
+                    const data = results.data.map(row => ({
+                        lrn: row["LRN"],
+                        lastname: row["Last Name"],
+                        firstname: row["First Name"],
+                        middlename: row["Middle Name"],
+                        birthday: row["Birthday"],
+                    }));
+
+                    fetch('http://localhost:8081/upload-students', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        alert(data.status);
+                    })
+                    .catch((error) => {
+                        alert('Error uploading data');
+                    });
+                },
+            });
+        } else {
+            event.target.value = "";
+        }
     };
 
     const csvHeaders = [
