@@ -56,7 +56,7 @@ export default function Category({ search, category }) {
             body: JSON.stringify({ Title: title })
         });
 
-        window.open('http://localhost:8081/uploads/' + pdfdestination, "_blank", "noreferrer");
+        window.open('http://localhost:8081/uploads/' + pdfdestination);
     }
 
     // const DownloadPDF = (pdfdestination, title) => {

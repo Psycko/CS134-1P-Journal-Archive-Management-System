@@ -1,7 +1,7 @@
 import Header from "../components/navbar"
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import Embed from 'react-embed';
 import { Viewer, Worker } from '@react-pdf-viewer/core'
 
 import '@react-pdf-viewer/core/lib/styles/index.css';
@@ -24,9 +24,9 @@ export default function ViewerPage() {
                         <h1 class="display-4">Online Archive System</h1>
                     </div>
                 
-                    <div class="tw-h-[100%] tw-bg-red-400 tw-w-[100%]">
-                        <Worker workerUrl={`https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.min.js`}>
-                            <Viewer fileUrl={'http://localhost:3000/uploads/' + dest} />
+                    <div class="tw-h-[100%] tw-w-[100%]">
+                        <Worker workerUrl={`https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js`}>
+                            <Viewer fileUrl={'http://localhost:8081/uploads/' + dest} />
                         </Worker>
                     </div>
                 </div>
