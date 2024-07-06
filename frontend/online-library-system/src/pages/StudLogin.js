@@ -51,7 +51,7 @@ export default function StudLogin() {
 
     return (
         <>
-        <div className="md:tw-bg-[url('/src/img/bg.jpg')] tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-min-h-dvh tw-min-w-full tw-gap-x-16 tw-gap-y-px">
+        <div className="tw-bg-[url('/src/img/bg.jpg')] tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-min-h-dvh tw-min-w-full tw-gap-x-16 tw-gap-y-px">
             <div class="md:tw-text-left tw-text-left sm:tw-text-center tw-font-archivo-black md:tw-pb-[200px]">
                 <h1 class="tw-text-7xl">Regional Science</h1>
                 <h1 class="tw-text-7xl">High School</h1>
