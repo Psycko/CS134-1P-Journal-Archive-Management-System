@@ -69,6 +69,10 @@ export default function Monitor() {
         { label: "Birthday", key: "birthday" },
     ];
 
+    const auditExport = (e) => {
+        fetch("http://localhost:8081/audit-export")
+    }
+
     return (
         <>
             <div className="tw-flex tw-bg-gray-50 tw-min-h-dvh">
@@ -115,13 +119,12 @@ export default function Monitor() {
                                 accept=".csv" 
                                 onChange={handleFileUpload} />
 
-
                             <CSVLink 
                                 headers={csvHeaders}
                                 data={studData}
                                 filename={"students.csv"}
                                 className="tw-bg-dark-blue tw-text-white tw-py-2 tw-px-4 tw-rounded tw-ml-6 hover:tw-bg-light-steel tw-duration-500"
-                            >
+                                onClick={auditExport}>
                                 Export CSV
                             </CSVLink>
                         </div>
