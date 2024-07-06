@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
 import Pagination from "./Pagination";
+import { Link } from 'react-router-dom';
 
 export default function Category({ search, category }) {
     const [data, setData] = useState([]);
@@ -45,6 +46,7 @@ export default function Category({ search, category }) {
 
     const ShowPDF = (pdfdestination, title) => {
 
+        console.log(pdfdestination);
         fetch('http://localhost:8081/viewAdd', {
             method: "POST",
             headers: {
@@ -123,7 +125,10 @@ export default function Category({ search, category }) {
                         <tr key={i}>
                             {/* <th class="sm:tw-hidden tw-whitespace-nowrap tw-py-4 tw-pl-4 tw-pr-3 tw-text-gray-900">{indexOfFirstPost + 1 + i}</th> */}
                             <td class="tw-break-words tw-text-left tw-text-wrap tw-pl-4 tw-pr-3 tw-text-gray-900 sm:tw-pl-6 sm:tw-pt-4">
-                                {d.title}
+                                {/* {d.title} */}
+                                <Link to={`/pdfView/${d.destination}`}>
+                                    {d.title}
+                                </Link>
                                 <dl class="md:tw-hidden">
                                     <dt class="tw-sr-only">Category</dt>
                                     <dd class="tw-pt-2">{d.category}</dd>
