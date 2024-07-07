@@ -37,7 +37,6 @@ export default function Monitor() {
                         lastname: row["Last Name"],
                         firstname: row["First Name"],
                         middlename: row["Middle Name"],
-                        birthday: row["Birthday"],
                     }));
 
                     fetch('http://localhost:8081/upload-students', {
@@ -66,7 +65,6 @@ export default function Monitor() {
         { label: "Last Name", key: "lastname" },
         { label: "First Name", key: "firstname" },
         { label: "Middle Name", key: "middlename" },
-        { label: "Birthday", key: "birthday" },
     ];
 
     const auditExport = (e) => {
@@ -110,7 +108,6 @@ export default function Monitor() {
                                     <th scope="col">Last Name</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Middle Name</th>
-                                    <th scope="col">Birthday</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -120,7 +117,6 @@ export default function Monitor() {
                                         <td>{d.lastname}</td>
                                         <td>{d.firstname}</td>
                                         <td>{d.middlename}</td>
-                                        <td>{d.birthday}</td>
                                     </tr>
                                 ))}
                             </tbody>
