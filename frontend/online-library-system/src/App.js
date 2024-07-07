@@ -14,6 +14,7 @@ import PDFManagement from './pages/pdfManagement';
 import PDFMonitor from './pages/pdfMonitor';
 import PhysSci from './pages/Physci';
 import AccountManagement from './pages/accountManagement';
+import Status from './pages/studentStatus';
 import { AuthorizeAdmin, AuthorizeUser } from "./hooks/authorize";
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
     <div className='App'>
         
         <Routes>
-          <Route index element={AuthorizeUser() ?<Home/> : <StudLogin/>} /> 
+          <Route index element={AuthorizeUser() ?<Home/> : <Status/>} /> 
           <Route path="login" element={AuthorizeUser()? <Home/>: <StudLogin/>} />
           <Route path="register" element={AuthorizeUser()? <Home/> : <Register/>} />
           <Route path="category/all" element={AuthorizeUser() ?<Home/> : <StudLogin/>}/>

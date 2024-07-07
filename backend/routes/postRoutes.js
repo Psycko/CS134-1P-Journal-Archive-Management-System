@@ -234,4 +234,5 @@ router.post('/deleteCredentials', async (req, res) => {
         res.send({status: {error}});
     }
 })
+
 module.exports = router;

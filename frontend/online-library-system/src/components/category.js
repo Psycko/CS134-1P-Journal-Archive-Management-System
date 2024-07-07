@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
-import axios from "axios";
+
 
 export default function Category({search, category}) {
     const [data, setData] = useState([]);
     useEffect(()=>{
-        
         fetch('http://localhost:8081/students/manuscripts/' + category + "/?search=" + search, {
         method: "get",
         })  
