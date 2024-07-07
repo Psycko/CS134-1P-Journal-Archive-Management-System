@@ -14,7 +14,7 @@ export default function Category({ search, category }) {
 
     useEffect(() => {
         if (search.length === 0) {
-            fetch('https://online-library-system-api.onrender.com/' + category, {
+            fetch('http://localhost:8081/' + category, {
                 method: "get",
             })
                 .then(res => res.json())
@@ -27,7 +27,7 @@ export default function Category({ search, category }) {
                 Search: search,
                 Categ: category,
             }
-            fetch('https://online-library-system-api.onrender.com/searchbar-category', {
+            fetch('http://localhost:8081/searchbar-category', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export default function Category({ search, category }) {
     const updStat = (pdfdestination, title) => {
 
         console.log(pdfdestination);
-        fetch('https://online-library-system-api.onrender.com/viewAdd', {
+        fetch('http://localhost:8081/viewAdd', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -149,7 +149,7 @@ export default function Category({ search, category }) {
                     ))}
                 </tbody>
             </table>
-
+            
             <div class="tw-flex tw-justify-end tw-pt-5">
                 <Pagination postsPerPage={postsPerPage} setPostsPerPage={setPostCount} totalPosts={data.length} paginate={paginate} sortType={sortingType} setSortType={sorting} />
             </div>
