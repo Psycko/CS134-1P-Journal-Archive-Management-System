@@ -9,7 +9,7 @@ const Pagination = ({ postsPerPage, setPostsPerPage, totalPosts, paginate, sortT
     const change = useCallback(event => {
         if (event.target.value === "") {
 
-        } 
+        }
 
         else {
             setPostsPerPage(event.target.value)
@@ -32,6 +32,7 @@ const Pagination = ({ postsPerPage, setPostsPerPage, totalPosts, paginate, sortT
                     <option value='5'>5</option>
                     <option value='10'>10</option>
                     <option value='15'>15</option>
+                    <option value='100'>100</option>
                 </select>
                 {pageNumbers.map(number => (
                     <li key={number} class="page-item">
