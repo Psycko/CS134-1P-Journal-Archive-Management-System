@@ -55,7 +55,7 @@ export default function Header() {
                   </ul>
                   <Link class="nav-link active" aria-current="page" to="/login">
                     <label class="tw-cursor-pointer" onClick={() => {
-                      Delete();
+                      Delete("student");
                       navigate("/login");
                       window.location.reload();}}>Sign Out</label>
                   </Link>

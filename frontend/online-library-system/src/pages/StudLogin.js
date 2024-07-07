@@ -21,8 +21,34 @@ export default function StudLogin() {
             headers: new Headers({
                 "Content-Type": "application/json",
             }),
+<<<<<<< HEAD
             body: JSON.stringify({ lrn: lrn, password: password, user: "Student" })
 
+=======
+            body: JSON.stringify({lrn: lrn, password: password, user: "Student"})
+           
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "Success!") {
+                alert(data.status);
+                localStorage.setItem("student", JSON.stringify(data.token));
+                navigate("/category/all");
+                window.location.reload();
+            }
+            else if (data.status === "Incorrect LRN!") {
+                alert(data.status);
+                setLrn("");
+                setPassword("");
+            }
+            else {
+                alert(data.status);
+                setPassword("");
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+>>>>>>> 61f170c7f7a4608645c92205c31df617d639bdd9
         })
             .then(res => res.json())
             .then(data => {
