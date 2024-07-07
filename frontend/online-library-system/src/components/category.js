@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom';
 
 export default function Category({ search, category }) {
     const [data, setData] = useState([]);
-    useEffect(()=>{
-        const [loading, setLoading] = useState(false);
-        const [currentPage, setCurrentpage] = useState(1);
-        const [postsPerPage, setPostsperpage] = useState(5); //Post per page
+    const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentpage] = useState(1);
+    const [postsPerPage, setPostsperpage] = useState(5); //Post per page
 
-        const [sortingType, setSortingType] = useState(1) //1: Ascending || -1: Descending
+    const [sortingType, setSortingType] = useState(1) //1: Ascending || -1: Descending
+    
+    useEffect(()=>{
+        
 
         fetch('http://localhost:8081/students/manuscripts/' + category + "/?search=" + search, {
         method: "get",
