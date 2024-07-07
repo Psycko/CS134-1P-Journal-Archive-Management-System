@@ -1,40 +1,15 @@
 import { useEffect, useState } from "react"
-import axios from "axios";
+
 
 export default function Category({search, category}) {
     const [data, setData] = useState([]);
     useEffect(()=>{
-        if (search.length === 0)
-        {
-            fetch('http://localhost:8081/' + category, {
-            method: "get",
-            })  
-            .then(res => res.json())
-            .then(data => setData(data))
-            .catch(err => console.log(err));
-        }
-
-        else
-        {
-            const journal = {
-                Search: search,
-                Categ: category,
-            }
-            fetch('http://localhost:8081/searchbar-category', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(journal)
-           // headers: new Headers({
-             //   "ngrok-skip-browser-warning": "89420",
-               // }),
-            })  
-            .then(res => res.json())
-            .then(data => setData(data))
-            .catch(err => console.log(err));
-        }
-            
+        fetch('http://localhost:8081/students/manuscripts/' + category + "/?search=" + search, {
+        method: "get",
+        })  
+        .then(res => res.json())
+        .then(data => setData(data))
+        .catch(err => console.log(err));
     }, [search])
 
     const ShowPDF = (pdfdestination, title) => {
