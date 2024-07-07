@@ -28,32 +28,31 @@ const transporter = nodemailer.createTransport({
 
 router.post("/getToken", async (req, res) => {
     console.log()
-    if(req.body.user === "Student")
-    {
+    if (req.body.user === "Student") {
         const lrn = req.body.lrn;
         const password = req.body.password;
         //123546asdf
         try {
-            const student = await regStudentsSchema.findOne({lrn})
-        
-            if(student) {
+            const student = await regStudentsSchema.findOne({ lrn })
+
+            if (student) {
                 if (password === student.password) {
-                    const token = jwt.sign({_id: student._id}, "Secret", {
+                    const token = jwt.sign({ _id: student._id }, "Secret", {
                         expiresIn: '6h',
                     });
-                    
 
-                    res.json({status: "Success!", token: token});
+
+                    res.json({ status: "Success!", token: token });
 
                 }
                 else {
-                    res.json({status: "Incorrect Password!"});
+                    res.json({ status: "Incorrect Password!" });
                 }
             }
             else {
-                res.json({status: "Incorrect LRN!"});
-            }    
-            
+                res.json({ status: "Incorrect LRN!" });
+            }
+
         } catch (error) {
             res.send(error);
         }
@@ -64,102 +63,102 @@ router.post("/getToken", async (req, res) => {
         const password = req.body.password;
 
         try {
-            const admin = await adminSchema.findOne({email});
-        
-            if(admin) {
-                
+            const admin = await adminSchema.findOne({ email });
+
+            if (admin) {
+
 
                 if (password === admin.password) {
-                    const token = jwt.sign({_id: admin._id}, "Secret", {
+                    const token = jwt.sign({ _id: admin._id }, "Secret", {
                         expiresIn: '3h',
                     });
-                    
+
 
 
                     var code = "";
 
-                    for (let i = 0; i < 6; i++){
+                    for (let i = 0; i < 6; i++) {
                         code += Math.floor((Math.random() * 10));;
                     }
 
                     generate2fa(admin.email, code);
-                    
+
                     console.log(code);
-                    res.json({status: "Success!", token: token, otp: code});
+                    res.json({ status: "Success!", token: token, otp: code });
 
                 }
                 else {
-                    res.json({status: "Incorrect Password!"});
+                    res.json({ status: "Incorrect Password!" });
                 }
             }
             else {
-                res.json({status: "Incorrect Email!"});
-            }    
-            
+                res.json({ status: "Incorrect Email!" });
+            }
+
         } catch (error) {
             res.send(error);
         }
     }
 })
 
-router.post("/authorizeUser", async(req, res) => {
+router.post("/authorizeUser", async (req, res) => {
     const token = req.body.token.split("\"")[1];
 
 
-    jwt.verify(token, "Secret", async function(err, decode) {
+    jwt.verify(token, "Secret", async function (err, decode) {
         if (err) {
-            res.status(403).send({status: "Expired"});
+            res.status(403).send({ status: "Expired" });
         }
-        
+
         else {
             try {
                 const student = await regStudentsSchema.findById(decode._id)
-        
+
                 if (student) {
-                    res.json({status: "Student"});
+                    res.json({ status: "Student" });
                 }
-                else{
-                    res.json({status: "Error"});
+                else {
+                    res.json({ status: "Error" });
                 }
             } catch (error) {
-                res.json({status: "Error"})
+                res.json({ status: "Error" }) //
             }
-       }
+        }
 
     });
 
-    
-    
-    
+
+
+
 })
 
 
-router.post("/authorizeAdmin", async(req, res) => {
-    
+router.post("/authorizeAdmin", async (req, res) => {
+
     const token = req.body.token.split("\"")[1];
 
-    jwt.verify(token, "Secret", async function(err, decode) {
+    jwt.verify(token, "Secret", async function (err, decode) {
         if (err) {
-            res.status(403).send({status: "Expired"});
+            res.status(403).send({ status: "Expired" });
         }
 
         else {
             try {
                 const admin = await adminSchema.findById(decode._id)
                 if (admin) {
-                    res.json({status: "Admin"});
+                    res.json({ status: "Admin" });
                 }
-                else{
-                    res.json({status: "Error"});
+                else {
+                    res.json({ status: "Error" });
                 }
             } catch (error) {
-                res.json({status: "Error"});
+                res.json({ status: "Error" });
             }
-       }
+        }
 
     });
-   
-    
+
+
 
 })
 
@@ -174,18 +173,17 @@ const generate2fa = (email, code) => {
         text: "Your One Time Password is: " + code + "\nPlease use this to log-in"
     };
 
-    transporter.sendMail(receive, function(error, info)
-    {
+    transporter.sendMail(receive, function (error, info) {
         if (error) {
             console.log(error);
             generate2fa();
         }
-        else{
+        else {
             console.log("Code Sent to " + email);
         }
     });
 
-    
+
 }
 
 module.exports = router;
