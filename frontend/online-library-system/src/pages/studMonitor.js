@@ -81,7 +81,27 @@ export default function Monitor() {
                 </div>
                 <div className="tw-flex sm:tw-flex-wrap tw-flex-col tw-w-full md:tw-mx-20 md:tw-mt-[100px] sm:tw-m-5 tw-align-top">
                     <label className="tw-text-center tw-text-5xl tw-pb-[100px]">Enrolled Students</label>
-                    <Searchbar />
+                    <div className="tw-flex tw-mb-4 tw-items-center">
+                        <input 
+                            className="file:tw-rounded-l-md tw-block file:tw-h-[40px] file:tw-border-none tw-outline-none tw-rounded-md tw-ring-1
+                            tw-ring-gray-300 focus:tw-ring-gray-500 file:tw-bg-dark-blue file:tw-px-3 file:tw-text-white
+                            focus:tw-ring-1 focus:tw-shadow-lg file:hover:tw-bg-light-steel file:tw-duration-500 file:hover:tw-cursor-pointer"
+                            type="file"
+                            accept=".csv"
+                            onChange={handleFileUpload}
+                        />
+                        <CSVLink 
+                            headers={csvHeaders}
+                            data={studData}
+                            filename={"students.csv"}
+                            className="tw-bg-dark-blue tw-text-white tw-py-2 tw-px-4 tw-rounded hover:tw-bg-light-steel tw-duration-500 tw-ml-4"
+                            onClick={auditExport}>
+                            Export CSV
+                        </CSVLink>
+                        <div className="tw-ml-auto tw-w-full md:tw-w-1/2 lg:tw-w-1/3">
+                            <Searchbar className="tw-w-max" />
+                        </div>
+                    </div>
                     <div className="category table-striped table-responsive tw-w-[100%] sm:tw-w-full tw-flex tw-align-center tw-flex-col">
                         <table className="table table-striped tw-text-center">
                             <thead className="tw-text-center">
@@ -105,29 +125,6 @@ export default function Monitor() {
                                 ))}
                             </tbody>
                         </table>
-                    </div>
-
-                    <div class="tw-flex tw-flex-row-reverse tw-pt-5">
-                        <div className="tw-flex tw-justify-between tw-mb-4">
-                            {/* <input type="file" accept=".csv" onChange={handleFileUpload} class="tw-rounded-md tw-h-[40px] tw-border-none tw-outline-none tw-ring-1 tw-ring-gray-300 focus:tw-ring-gray-500 focus:tw-ring-1 tw-px-3 focus:tw-shadow-lg
-                                focus:tw-duration-500 focus:tw-placeholder-transparent" /> */}
-                            
-                            <input class="file:tw-rounded-l-md tw-block file:tw-h-[40px] file:tw-border-none tw-outline-none tw-rounded-md tw-ring-1
-                                tw-ring-gray-300 focus:tw-ring-gray-500 file:tw-bg-dark-blue file:tw-px-3 file:tw-text-white
-                                focus:tw-ring-1 focus:tw-shadow-lg file:hover:tw-bg-light-steel file:tw-duration-500 file:hover:tw-cursor-pointer" 
-                                type="file"
-                                accept=".csv" 
-                                onChange={handleFileUpload} />
-
-                            <CSVLink 
-                                headers={csvHeaders}
-                                data={studData}
-                                filename={"students.csv"}
-                                className="tw-bg-dark-blue tw-text-white tw-py-2 tw-px-4 tw-rounded tw-ml-6 hover:tw-bg-light-steel tw-duration-500"
-                                onClick={auditExport}>
-                                Export CSV
-                            </CSVLink>
-                        </div>
                     </div>
                 </div>
             </div>
