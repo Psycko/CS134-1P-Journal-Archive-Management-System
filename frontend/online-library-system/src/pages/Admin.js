@@ -5,6 +5,7 @@ import Sidebar from "../components/sidebar";
 export default function Admin() {
 
     const [researchTitle, setTitle] = useState("");
+    const [researchAuthor, setAuthor] = useState("");
     const [researchYear, setYear] = useState("");
     const [category, setCategory] = useState("");
     const [file, setFile] = useState("");
@@ -15,11 +16,12 @@ export default function Admin() {
         e.preventDefault();
         const formData = new FormData();
         formData.append("Title", researchTitle);
+        formData.append("Author", researchAuthor);
         formData.append("Year", researchYear);
         formData.append("Category", category);
         formData.append("File", file);
         
-        console.log(researchTitle, researchYear, category, file);
+        console.log(researchTitle, researchAuthor, researchYear, category, file);
 
         const uploadAPI = await axios.post("http://localhost:8081/upload-pdf", formData, {
             headers: { "Content-type" : "multipart/form-data",
@@ -28,11 +30,10 @@ export default function Admin() {
         });
         alert(uploadAPI.data.status);
         setTitle("");
+        setAuthor("");
         setYear("");
         setCategory("");
         inputRef.current.value = null;
-
-
     }
 
     return(
@@ -40,7 +41,7 @@ export default function Admin() {
         <div class="tw-flex tw-min-h-dvh tw-min-w-full tw-bg-gray-100">
             <Sidebar />
 
-            <div class="tw-mx-auto tw-my-auto tw-bg-white tw-rounded-lg tw-justify-center tw-shadow-lg">
+            <div class="tw-mx-auto tw-my-auto tw-bg-white tw-rounded-lg tw-shadow-lg">
                 <form class="formStyle sm:tw-w-full tw-p-5 md:tw-w-[500px]" onSubmit={submitFile}>
                     <div class="form-group">
                         <div class="mb-3 row">
@@ -48,6 +49,16 @@ export default function Admin() {
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="titleInput" placeholder="Title" required
                                 onChange={(e) => setTitle(e.target.value)} value={researchTitle}/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="mb-3 row">
+                            <label for="titleInput" class="col-sm-2 col-form-label">Author</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="authorInput" placeholder="Author" required
+                                onChange={(e) => setAuthor(e.target.value)} value={researchAuthor}/>
                             </div>
                         </div>
                     </div>

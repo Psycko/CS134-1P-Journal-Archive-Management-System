@@ -14,6 +14,9 @@ const studInfoSchema = mongoose.model("studInfo");
 require("../Schema/pdfStatistics");
 const pdfStatistics = mongoose.model("pdfstat");
 
+require("../Schema/auditLogs");
+const auditSchema = mongoose.model("auditLog");
+
 router.get('/all-categ', (req, res)=> {
     try {
          PdfDetailsSchema.find({}).then((data) => {
@@ -85,6 +88,9 @@ router.get('/all-categ', (req, res)=> {
  })
 
 router.post('/delete-pdf', (req, res) => {
+    const action = "Delete PDF" 
+    const date = Date.now()
+
     PdfDetailsSchema.deleteOne({title: req.body.title})
     .then(result => {
         pdfStatistics.deleteOne({title: req.body.title})
@@ -95,6 +101,9 @@ router.post('/delete-pdf', (req, res) => {
             res.send(error);
         })
         
+        auditSchema.create({
+            action: action,
+            date: date})
     })
     .catch(error => {
         res.send(error);
@@ -104,10 +113,13 @@ router.post('/delete-pdf', (req, res) => {
 router.post('/edit-pdf', async (req, res) => {
     const id = req.body.data._id;
     const title = req.body.data.title;
+    const author = req.body.data.author;
     const category = req.body.data.category;
     const year = req.body.data.year;
     const currentYear = new Date().getFullYear();
     var isTrue = true;
+    const action = "Edit PDF Detail/s" 
+    const date = Date.now()
 
     if (!/^\d{4}$/.test(year) || year > currentYear || year === "") {
         return res.status(400).json({ status: "Invalid year! Please provide a valid 4-digit year not greater than the current year." });
@@ -153,9 +165,15 @@ router.post('/edit-pdf', async (req, res) => {
                     }
 
                     data.title = title;
+                    data.author = author;
                     data.category = category;
                     data.year = year;
                     data.save();
+
+                    auditSchema.create({
+                        action: action,
+                        date: date})
+
                     res.send({status: "Journal Successfully Edited!"});
                 });
 

@@ -73,18 +73,18 @@ export default function Register() {
                     </div>
                     <div class="elements tw-p-2.5 tw-w-full">
                         <div class="form-group">
-                                <label for="passwordInput">Confirm Password</label>
-                                <input type="password" class="form-control focus:tw-placeholder-transparent" id="passwordInput" placeholder="Password" required onChange={(e) => checkPassword(e.target.value)} value={confirmPass}/>
+                                <label for="confirmpassInput">Confirm Password</label>
+                                <input type="password" class="form-control focus:tw-placeholder-transparent" id="confirmpassInput" placeholder="Password" required onChange={(e) => checkPassword(e.target.value)} value={confirmPass}/>
                             </div>
                     </div>
                     <div class="elements tw-p-2.5 tw-w-full tw-font-roboto">
-                        <button type="submit" class="rgtbutton tw-flex tw-justify-center tw-items-center tw-w-full tw-bg-btn-landing tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-btn-dark tw-duration-500">
+                        <button type="submit" class="rgtbutton tw-flex tw-justify-center tw-items-center tw-w-full tw-bg-steel-blue tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-hover-blue tw-duration-500">
                             <label class="tw-cursor-pointer tw-text-gray-50">Sign Up</label></button>
                     </div>
 
                     <hr />
                     <div class="elements tw-p-2.5 tw-w-full tw-font-roboto">
-                        <button class="lgnbutton tw-flex tw-justify-center tw-items-center tw-w-full tw-bg-btn-landing tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-btn-dark tw-duration-500" 
+                        <button class="lgnbutton tw-flex tw-justify-center tw-items-center tw-w-full tw-bg-steel-blue tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-hover-blue tw-duration-500" 
                             onClick={navToLogin}>
                             <label class="tw-cursor-pointer tw-text-gray-50">Login</label></button>
                     </div>

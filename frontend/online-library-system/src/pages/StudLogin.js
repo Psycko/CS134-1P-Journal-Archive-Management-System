@@ -50,7 +50,7 @@ export default function StudLogin() {
 
     return (
         <>
-        <div className="md:tw-bg-[url('/src/img/bg.jpg')] tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-min-h-dvh tw-min-w-full tw-gap-x-16 tw-gap-y-px">
+        <div className="tw-bg-[url('/src/img/bg.jpg')] tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-min-h-dvh tw-min-w-full tw-gap-x-16 tw-gap-y-px">
             <div class="md:tw-text-left tw-text-left sm:tw-text-center tw-font-archivo-black md:tw-pb-[200px]">
                 <h1 class="tw-text-7xl">Regional Science</h1>
                 <h1 class="tw-text-7xl">High School</h1>
@@ -76,16 +76,16 @@ export default function StudLogin() {
                             </div>
                     </div>
                     <div class="elements tw-p-2.5 tw-w-full tw-font-roboto">
-                        <button type="login" class="lgnbutton tw-flex tw-justify-center tw-items-center tw-w-full tw-bg-btn-landing tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-btn-dark tw-duration-500"
+                        <button type="login" class="lgnbutton tw-flex tw-justify-center tw-items-center tw-w-full tw-bg-steel-blue tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-hover-blue tw-duration-500"
                         onClick={(e) => loginButton(e)}>
                             <label class="tw-cursor-pointer tw-text-gray-50">Login</label></button>
                     </div>
                     <hr />
 
                     <div class="elements tw-p-2.5 tw-w-full tw-font-roboto">
-                        <button type="register" class="rgtbutton tw-flex tw-justify-center tw-items-center tw-w-full tw-bg-btn-landing tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-btn-dark tw-duration-500" 
+                        <button type="register" class="rgtbutton tw-flex tw-justify-center tw-items-center tw-w-full tw-bg-steel-blue tw-rounded-md tw-h-[40px] tw-px-4 tw-border-none tw-outline-none hover:tw-bg-hover-blue tw-duration-500" 
                         onClick={navToSignUp}>
-                            <label class="tw-cursor-pointer tw-text-gray-50">Sign Up</label></button>
+                            <label class="tw-cursor-pointer tw-text-gray-100">Sign Up</label></button>
                     </div>
                 </form>
             </div>

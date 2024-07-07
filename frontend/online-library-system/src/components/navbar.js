@@ -11,7 +11,7 @@ export default function Header() {
     }
 
     return (
-        <div class="tw-top-0 tw-inset-x-0 tw-fixed tw-w-full tw-z-10">
+        <div class="tw-top-0 tw-fixed tw-w-full tw-z-10">
           <nav class="navbar navbar-light tw-bg-steel-blue">
             <div class="container-fluid">
               <a class="navbar-brand">
